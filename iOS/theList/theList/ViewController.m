@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+
+//NOTE: This VC is RESERVED for the landing page on first app launch.
+
 @interface ViewController ()
 
 @end
@@ -16,6 +19,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     //Mock up some dummy objects for testing
