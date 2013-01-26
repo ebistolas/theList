@@ -18,6 +18,14 @@
                   clientKey:@"PaupsjEI0gowHjxLPxQP6VNsFFsz9kcIjuEdDsxc"];
     [Parse setFacebookApplicationId:@"412766195473572"];
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    
+    LaunchScreenViewController* lsvc = [[LaunchScreenViewController alloc] init];
+    self.viewController = [[UINavigationController alloc] initWithRootViewController:lsvc];
+
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
