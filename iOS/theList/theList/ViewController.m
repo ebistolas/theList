@@ -24,6 +24,12 @@
     [testObj1 setObject:@"Buy my sick ass bike" forKey:@"description"];
     [testObj1 setObject:[NSNumber numberWithFloat:150.00] forKey:@"price"];
     [testObj1 setObject:@[@"hipster", @"tight", @"bike"] forKey:@"tags"];
+    [testObj1 setObject:@"bikes" forKey:@"category"];
+    [testObj1 setObject:[NSNumber numberWithBool:NO] forKey:@"sold"];
+    [testObj1 setObject:[NSNumber numberWithInt:12345] forKey:@"user"];
+    
+    
+    [testObj1 saveInBackground];
     
 }
 

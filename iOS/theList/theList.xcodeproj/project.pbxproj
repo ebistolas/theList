@@ -332,6 +332,8 @@
 		F032EF6D16B4688700895675 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Donald Percivalle (GJ84KWQ5ZG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Donald Percivalle (GJ84KWQ5ZG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -341,6 +343,8 @@
 				INFOPLIST_FILE = "theList/theList-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3736D977-DF60-4C56-BA35-7B6958503C5A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3736D977-DF60-4C56-BA35-7B6958503C5A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -348,6 +352,8 @@
 		F032EF6E16B4688700895675 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Donald Percivalle (GJ84KWQ5ZG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Donald Percivalle (GJ84KWQ5ZG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -357,6 +363,8 @@
 				INFOPLIST_FILE = "theList/theList-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3736D977-DF60-4C56-BA35-7B6958503C5A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3736D977-DF60-4C56-BA35-7B6958503C5A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -380,6 +388,7 @@
 				F032EF6E16B4688700895675 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
