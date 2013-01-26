@@ -19,6 +19,7 @@
 		F032EF6316B4688600895675 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F032EF6116B4688600895675 /* MainStoryboard_iPhone.storyboard */; };
 		F032EF6616B4688600895675 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F032EF6416B4688600895675 /* MainStoryboard_iPad.storyboard */; };
 		F032EF6916B4688700895675 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F032EF6816B4688700895675 /* ViewController.m */; };
+		F032EF7016B46AAF00895675 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF6F16B46AAF00895675 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		F032EF6516B4688600895675 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F032EF6716B4688700895675 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F032EF6816B4688700895675 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F032EF6F16B46AAF00895675 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 				F032EF4A16B4688600895675 /* UIKit.framework in Frameworks */,
 				F032EF4C16B4688600895675 /* Foundation.framework in Frameworks */,
 				F032EF4E16B4688600895675 /* CoreGraphics.framework in Frameworks */,
+				F032EF7016B46AAF00895675 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +78,7 @@
 		F032EF4816B4688600895675 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F032EF6F16B46AAF00895675 /* Parse.framework */,
 				F032EF4916B4688600895675 /* UIKit.framework */,
 				F032EF4B16B4688600895675 /* Foundation.framework */,
 				F032EF4D16B4688600895675 /* CoreGraphics.framework */,
@@ -276,6 +280,10 @@
 		F032EF6D16B4688700895675 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "theList/theList-Prefix.pch";
 				INFOPLIST_FILE = "theList/theList-Info.plist";
@@ -287,6 +295,10 @@
 		F032EF6E16B4688700895675 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "theList/theList-Prefix.pch";
 				INFOPLIST_FILE = "theList/theList-Info.plist";
