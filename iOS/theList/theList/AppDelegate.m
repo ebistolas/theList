@@ -14,8 +14,16 @@
 {
     
     //Bring up Parse
+    [Parse setApplicationId:@"3LJfPumFrT2H1gKJ4Zl31m3bh5bF0hvJbxwbIkz8"
+                  clientKey:@"PaupsjEI0gowHjxLPxQP6VNsFFsz9kcIjuEdDsxc"];
+    [Parse setFacebookApplicationId:@"412766195473572"];
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
