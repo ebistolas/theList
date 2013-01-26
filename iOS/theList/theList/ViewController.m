@@ -17,7 +17,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    //Mock up some dummy objects for testing
+    PFObject *testObj1 = [PFObject objectWithClassName:@"listing"];
+    [testObj1 setObject:@"HIP FIXIE" forKey:@"title"];
+    [testObj1 setObject:@"Buy my sick ass bike" forKey:@"description"];
+    [testObj1 setObject:[NSNumber numberWithFloat:150.00] forKey:@"price"];
+    [testObj1 setObject:@[@"hipster", @"tight", @"bike"] forKey:@"tags"];
+    
 }
 
 - (void)didReceiveMemoryWarning
