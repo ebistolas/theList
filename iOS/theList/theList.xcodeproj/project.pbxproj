@@ -67,6 +67,7 @@
 		F032EF8516B46BCC00895675 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F032EF8716B46BD200895675 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F032EF8916B46BD800895675 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F0C2A61116B483FE003C4BAC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +142,7 @@
 		F032EF4F16B4688600895675 /* theList */ = {
 			isa = PBXGroup;
 			children = (
+				F0C2A61116B483FE003C4BAC /* Constants.h */,
 				F032EF5816B4688600895675 /* AppDelegate.h */,
 				F032EF5916B4688600895675 /* AppDelegate.m */,
 				F032EF6116B4688600895675 /* MainStoryboard_iPhone.storyboard */,
@@ -343,8 +345,8 @@
 				INFOPLIST_FILE = "theList/theList-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3736D977-DF60-4C56-BA35-7B6958503C5A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3736D977-DF60-4C56-BA35-7B6958503C5A";
+				PROVISIONING_PROFILE = "5F985942-F0A2-47DD-BFA7-9BFDBB926F02";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5F985942-F0A2-47DD-BFA7-9BFDBB926F02";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -363,8 +365,8 @@
 				INFOPLIST_FILE = "theList/theList-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3736D977-DF60-4C56-BA35-7B6958503C5A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3736D977-DF60-4C56-BA35-7B6958503C5A";
+				PROVISIONING_PROFILE = "5F985942-F0A2-47DD-BFA7-9BFDBB926F02";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5F985942-F0A2-47DD-BFA7-9BFDBB926F02";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
