@@ -16,7 +16,7 @@
     //Bring up Parse
     [Parse setApplicationId:@"3LJfPumFrT2H1gKJ4Zl31m3bh5bF0hvJbxwbIkz8"
                   clientKey:@"PaupsjEI0gowHjxLPxQP6VNsFFsz9kcIjuEdDsxc"];
-    [Parse setFacebookApplicationId:@"412766195473572"];
+    [PFFacebookUtils initializeWithApplicationId:@"412766195473572"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -29,11 +29,15 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+   return [PFFacebookUtils handleOpenURL:url];
+}
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [PFFacebookUtils handleOpenURL:url];
+   return [PFFacebookUtils handleOpenURL:url];
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,8 +37,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    SearchResultsViewController *srvc = [[SearchResultsViewController alloc] initWithClassName:LISTING_CLASS];
-    [self presentViewController:srvc animated:YES completion:nil];
+
 }
 
 @end

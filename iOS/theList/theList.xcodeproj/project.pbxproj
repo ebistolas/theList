@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC47020116B4A6010079DF39 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC47020016B4A6010079DF39 /* LoginViewController.m */; };
 		F032EF4A16B4688600895675 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF4916B4688600895675 /* UIKit.framework */; };
 		F032EF4C16B4688600895675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF4B16B4688600895675 /* Foundation.framework */; };
 		F032EF4E16B4688600895675 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF4D16B4688600895675 /* CoreGraphics.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC4701FF16B4A6010079DF39 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		AC47020016B4A6010079DF39 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		F032EF4616B4688600895675 /* theList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F032EF4916B4688600895675 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F032EF4B16B4688600895675 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC47020216B4ABEA0079DF39 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AC4701FF16B4A6010079DF39 /* LoginViewController.h */,
+				AC47020016B4A6010079DF39 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		F032EF3D16B4688600895675 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +161,7 @@
 				F032EF5916B4688600895675 /* AppDelegate.m */,
 				F0A9DAC716B49D7700CB63A2 /* LaunchScreenViewController.h */,
 				F0A9DAC816B49D7700CB63A2 /* LaunchScreenViewController.m */,
+				AC47020216B4ABEA0079DF39 /* Login */,
 				F0C2A61516B485C9003C4BAC /* Listings */,
 				F032EF5016B4688600895675 /* Supporting Files */,
 			);
@@ -250,6 +263,7 @@
 				F0C2A61E16B48A14003C4BAC /* SearchManager.m in Sources */,
 				F0C2A62116B48C93003C4BAC /* ListingsViewController.m in Sources */,
 				F0A9DAC916B49D7700CB63A2 /* LaunchScreenViewController.m in Sources */,
+				AC47020116B4A6010079DF39 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
