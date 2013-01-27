@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginViewController.h"
+#import "SearchResultsViewController.h"
 
 @interface LaunchScreenViewController : UIViewController
 
