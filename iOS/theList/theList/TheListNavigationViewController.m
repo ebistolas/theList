@@ -58,7 +58,7 @@
 }
 
 -(void)rightBarButtonPressed {
-    
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:SEARCH_NOTIFICATION object:nil]];
 }
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {

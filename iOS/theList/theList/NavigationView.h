@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) UIImageView *rightBarButtonImage;
 @property (nonatomic, strong) UIImageView *leftBarButtonImage;
+@property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, weak) id<NavViewProtocol> delegate;
 
 -(void)pushingViewControllerWithTotalViews:(int)total;

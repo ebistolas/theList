@@ -41,6 +41,13 @@
 		F032EF8616B46BCC00895675 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF8516B46BCC00895675 /* Social.framework */; };
 		F032EF8816B46BD200895675 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF8716B46BD200895675 /* StoreKit.framework */; };
 		F032EF8A16B46BD800895675 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF8916B46BD800895675 /* SystemConfiguration.framework */; };
+		F03DB49616B5CFE1003D5F58 /* star_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F03DB49216B5CFE1003D5F58 /* star_empty@2x.png */; };
+		F03DB49716B5CFE1003D5F58 /* star_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F03DB49316B5CFE1003D5F58 /* star_full@2x.png */; };
+		F03DB49816B5CFE1003D5F58 /* start_conversation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F03DB49416B5CFE1003D5F58 /* start_conversation@2x.png */; };
+		F03DB49916B5CFE1003D5F58 /* back_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F03DB49516B5CFE1003D5F58 /* back_arrow.png */; };
+		F03DB4A016B5D020003D5F58 /* GmailLikeLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F03DB49B16B5CFFA003D5F58 /* GmailLikeLoadingView.m */; };
+		F03DB4A116B5D020003D5F58 /* ListingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F03DB49D16B5D003003D5F58 /* ListingsViewController.m */; };
+		F03DB4A216B5D020003D5F58 /* ListingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F03DB49F16B5D014003D5F58 /* ListingDetailViewController.m */; };
 		F0A9DAC916B49D7700CB63A2 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A9DAC816B49D7700CB63A2 /* LaunchScreenViewController.m */; };
 		F0C877AA16B4B89F004A8E30 /* fatcat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0C877A416B4B89F004A8E30 /* fatcat.jpg */; };
 		F0C877AB16B4B89F004A8E30 /* fixie1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0C877A516B4B89F004A8E30 /* fixie1.jpg */; };
@@ -53,7 +60,6 @@
 		F0C877B716B4C035004A8E30 /* Rambla-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0C877B216B4BF60004A8E30 /* Rambla-Italic.ttf */; };
 		F0C877B816B4C035004A8E30 /* Rambla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0C877B316B4BF60004A8E30 /* Rambla-Regular.ttf */; };
 		F0C877BB16B4C9D8004A8E30 /* SearchResultsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C877BA16B4C9D8004A8E30 /* SearchResultsImageCell.m */; };
-		F0D2A06616B4A775007252F4 /* SearchResultsViewController_OLD.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D2A06516B4A775007252F4 /* SearchResultsViewController_OLD.m */; };
 		F0D2A06916B4A960007252F4 /* SearchResultsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D2A06816B4A960007252F4 /* SearchResultsListCell.m */; };
 		F0D2A06B16B4AE05007252F4 /* search_list_sell_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D2A06A16B4AE05007252F4 /* search_list_sell_background.png */; };
 		F0F1724716B4FE75009AC961 /* iPhone.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F0F1724616B4FE75009AC961 /* iPhone.jpeg */; };
@@ -120,6 +126,16 @@
 		F032EF8516B46BCC00895675 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F032EF8716B46BD200895675 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F032EF8916B46BD800895675 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F03DB49216B5CFE1003D5F58 /* star_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_empty@2x.png"; sourceTree = "<group>"; };
+		F03DB49316B5CFE1003D5F58 /* star_full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_full@2x.png"; sourceTree = "<group>"; };
+		F03DB49416B5CFE1003D5F58 /* start_conversation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start_conversation@2x.png"; sourceTree = "<group>"; };
+		F03DB49516B5CFE1003D5F58 /* back_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_arrow.png; sourceTree = "<group>"; };
+		F03DB49A16B5CFFA003D5F58 /* GmailLikeLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GmailLikeLoadingView.h; sourceTree = "<group>"; };
+		F03DB49B16B5CFFA003D5F58 /* GmailLikeLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GmailLikeLoadingView.m; sourceTree = "<group>"; };
+		F03DB49C16B5D003003D5F58 /* ListingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListingsViewController.h; sourceTree = "<group>"; };
+		F03DB49D16B5D003003D5F58 /* ListingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListingsViewController.m; sourceTree = "<group>"; };
+		F03DB49E16B5D014003D5F58 /* ListingDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListingDetailViewController.h; sourceTree = "<group>"; };
+		F03DB49F16B5D014003D5F58 /* ListingDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListingDetailViewController.m; sourceTree = "<group>"; };
 		F0A9DAC716B49D7700CB63A2 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
 		F0A9DAC816B49D7700CB63A2 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		F0C2A61116B483FE003C4BAC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
@@ -135,8 +151,6 @@
 		F0C877B316B4BF60004A8E30 /* Rambla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rambla-Regular.ttf"; sourceTree = "<group>"; };
 		F0C877B916B4C9D8004A8E30 /* SearchResultsImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsImageCell.h; sourceTree = "<group>"; };
 		F0C877BA16B4C9D8004A8E30 /* SearchResultsImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsImageCell.m; sourceTree = "<group>"; };
-		F0D2A06416B4A775007252F4 /* SearchResultsViewController_OLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultsViewController_OLD.h; path = ../SearchResultsViewController_OLD.h; sourceTree = "<group>"; };
-		F0D2A06516B4A775007252F4 /* SearchResultsViewController_OLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultsViewController_OLD.m; path = ../SearchResultsViewController_OLD.m; sourceTree = "<group>"; };
 		F0D2A06716B4A960007252F4 /* SearchResultsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultsListCell.h; path = ../SearchResultsListCell.h; sourceTree = "<group>"; };
 		F0D2A06816B4A960007252F4 /* SearchResultsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultsListCell.m; path = ../SearchResultsListCell.m; sourceTree = "<group>"; };
 		F0D2A06A16B4AE05007252F4 /* search_list_sell_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_list_sell_background.png; sourceTree = "<group>"; };
@@ -296,14 +310,18 @@
 		F0C2A61516B485C9003C4BAC /* Listings */ = {
 			isa = PBXGroup;
 			children = (
-				F0D2A06416B4A775007252F4 /* SearchResultsViewController_OLD.h */,
-				F0D2A06516B4A775007252F4 /* SearchResultsViewController_OLD.m */,
 				F01CC2AC16B4F5A2006D04D8 /* SearchResultsViewController.h */,
 				F01CC2AD16B4F5A2006D04D8 /* SearchResultsViewController.m */,
 				F0D2A06716B4A960007252F4 /* SearchResultsListCell.h */,
 				F0D2A06816B4A960007252F4 /* SearchResultsListCell.m */,
 				F0C877B916B4C9D8004A8E30 /* SearchResultsImageCell.h */,
 				F0C877BA16B4C9D8004A8E30 /* SearchResultsImageCell.m */,
+				F03DB49A16B5CFFA003D5F58 /* GmailLikeLoadingView.h */,
+				F03DB49B16B5CFFA003D5F58 /* GmailLikeLoadingView.m */,
+				F03DB49C16B5D003003D5F58 /* ListingsViewController.h */,
+				F03DB49D16B5D003003D5F58 /* ListingsViewController.m */,
+				F03DB49E16B5D014003D5F58 /* ListingDetailViewController.h */,
+				F03DB49F16B5D014003D5F58 /* ListingDetailViewController.m */,
 			);
 			name = Listings;
 			sourceTree = "<group>";
@@ -349,6 +367,10 @@
 		F0D2A06C16B4AE0A007252F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F03DB49216B5CFE1003D5F58 /* star_empty@2x.png */,
+				F03DB49316B5CFE1003D5F58 /* star_full@2x.png */,
+				F03DB49416B5CFE1003D5F58 /* start_conversation@2x.png */,
+				F03DB49516B5CFE1003D5F58 /* back_arrow.png */,
 				F0F1724D16B502B1009AC961 /* Navbar */,
 				F0C877B416B4BF66004A8E30 /* Fonts */,
 				F0C877A316B4B6B5004A8E30 /* Item images */,
@@ -471,6 +493,10 @@
 				F0F1724A16B502A4009AC961 /* arrowRight.png in Resources */,
 				F0F1724C16B502A9009AC961 /* arrowLeft.png in Resources */,
 				F0F1724F16B50EB2009AC961 /* fattestcat.jpg in Resources */,
+				F03DB49616B5CFE1003D5F58 /* star_empty@2x.png in Resources */,
+				F03DB49716B5CFE1003D5F58 /* star_full@2x.png in Resources */,
+				F03DB49816B5CFE1003D5F58 /* start_conversation@2x.png in Resources */,
+				F03DB49916B5CFE1003D5F58 /* back_arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,11 +507,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F03DB4A016B5D020003D5F58 /* GmailLikeLoadingView.m in Sources */,
+				F03DB4A116B5D020003D5F58 /* ListingsViewController.m in Sources */,
+				F03DB4A216B5D020003D5F58 /* ListingDetailViewController.m in Sources */,
 				F032EF5616B4688600895675 /* main.m in Sources */,
 				F032EF5A16B4688600895675 /* AppDelegate.m in Sources */,
 				F0A9DAC916B49D7700CB63A2 /* LaunchScreenViewController.m in Sources */,
 				AC47020116B4A6010079DF39 /* LoginViewController.m in Sources */,
-				F0D2A06616B4A775007252F4 /* SearchResultsViewController_OLD.m in Sources */,
 				F0D2A06916B4A960007252F4 /* SearchResultsListCell.m in Sources */,
 				F0C877BB16B4C9D8004A8E30 /* SearchResultsImageCell.m in Sources */,
 				F01CC2AE16B4F5A2006D04D8 /* SearchResultsViewController.m in Sources */,

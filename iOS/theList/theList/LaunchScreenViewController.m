@@ -10,6 +10,11 @@
 
 @interface LaunchScreenViewController ()
 
+@property (nonatomic, strong) UIImageView *logo;
+@property (nonatomic, strong) UIImageView *burger;
+@property (nonatomic, strong) UITextField *searchField;
+@property (nonatomic, strong) UIImageView *searchButtonImage;
+
 @end
 
 @implementation LaunchScreenViewController
@@ -25,7 +30,6 @@
 
 - (void)viewDidLoad
 {
-
     //Setup nav bar
 
     [super viewDidLoad];
@@ -90,11 +94,84 @@
     [lappie setObject:@[l] forKey:LISTING_IMAGES];
     [lappie saveInBackground];*/
 
-    UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    loginButton.frame = CGRectMake(50, 200, 200, 50);
-    [loginButton addTarget:self action:@selector(loginButtonPresserd:) forControlEvents:UIControlEventTouchUpInside];
-    [loginButton setTitle:@"Login" forState:UIControlStateNormal];
-    [self.view addSubview:loginButton];
+    [super viewDidLoad];
+
+    
+    //Set up the mothafuckin launch screen.
+    UIImageView *launchImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"launch_background_photo.png"]];
+    launchImage.frame = self.view.bounds;
+    [self.view addSubview:launchImage];
+    
+    //mothafuckin hamburgers
+    self.burger = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hamburger.png"]];
+    self.burger.frame = CGRectMake(7, 3, 30, 30);
+    [self.view addSubview:self.burger];
+    
+    self.logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_launchpage.png"]];
+    self.logo.frame = CGRectMake(0, 110, self.view.bounds.size.width, 224);
+    [self.view addSubview:self.logo];
+    
+    //Text search box
+    self.searchField = [[UITextField alloc] initWithFrame:CGRectMake(15, 350, 240, 33)];
+    self.searchField.delegate = self;
+    self.searchField.placeholder = @" What are you looking for?";
+    self.searchField.font = [UIFont fontWithName:@"SourceSansPro-Light" size:22];
+    self.searchField.adjustsFontSizeToFitWidth = YES;
+    self.searchField.borderStyle = UITextBorderStyleRoundedRect;
+    self.searchField.backgroundColor = [UIColor whiteColor];
+    self.searchField.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.searchField.layer.shadowOffset = CGSizeMake(0, 2);
+    self.searchField.layer.shadowRadius = 6;
+    self.searchField.layer.shadowOpacity = 1;
+    self.searchField.clipsToBounds = NO;
+    self.searchField.returnKeyType = UIReturnKeySearch;
+
+    [self.view addSubview:self.searchField];
+    
+    self.searchButtonImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_icon.png"]];
+    self.searchButtonImage.frame = CGRectMake(self.searchField.frame.size.width + 30, self.searchField.frame.origin.y, 31,31);
+    [self.view addSubview:self.searchButtonImage];
+    
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchButton.frame = self.searchButtonImage.frame;
+    [searchButton addTarget:self action:@selector(searchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //Notifications
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowOrHide:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowOrHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [tapGesture setNumberOfTapsRequired:1];
+    [self.view addGestureRecognizer:tapGesture];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NavigationView *navView = ((TheListNavigationViewController*)self.navigationController).navView;
+    navView.hidden = YES;
+    
+    CGRect logoRect = self.logo.frame;
+    logoRect.origin.y = 40;
+    
+    self.burger.alpha = 0;
+    self.searchField.alpha = 0;
+    self.searchButtonImage.alpha = 0;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        //self.logo.frame = logoRect;
+        self.burger.alpha = 1;
+        self.searchField.alpha = 1;
+        self.searchButtonImage.alpha = 1;
+
+    } completion:^(BOOL finished){
+    }];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NavigationView *navView = ((TheListNavigationViewController*)self.navigationController).navView;
+    navView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,13 +181,69 @@
 }
 
 - (void)searchButtonPressed:(id)button {
-    SearchResultsViewController *srvc = [[SearchResultsViewController alloc] initWithStyle:UITableViewStylePlain];
-    [self.navigationController pushViewController:srvc animated:YES];
+    if ([self.searchField.text length]) {
+        [self searchWithText:self.searchField.text];
+    }
+    
 }
 
-- (void)loginButtonPresserd:(id)loginButton {
-   LoginViewController *loginView = [[LoginViewController alloc] initWithNibName:nil bundle:nil];
-   [self presentViewController:loginView animated:YES completion:nil];
+-(void)keyboardDidShowOrHide:(NSNotification*)note {
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect logoRect = self.logo.frame;
+        CGRect searchFieldRect = self.searchField.frame;
+        CGRect searchButtonRect = self.searchButtonImage.frame;
+        
+        if ([[note name] isEqualToString:UIKeyboardWillHideNotification]) {
+            logoRect.origin.y += 80;
+            searchFieldRect.origin.y += 80;
+            searchButtonRect.origin.y += 80;
+        } else if ([[note name] isEqualToString:UIKeyboardWillShowNotification]) {
+            logoRect.origin.y -= 80;
+            searchFieldRect.origin.y -= 80;
+            searchButtonRect.origin.y -= 80;
+        }
+        
+        self.logo.frame = logoRect;
+        self.searchField.frame = searchFieldRect;
+        self.searchButtonImage.frame = searchButtonRect;
+        
+    }completion:^(BOOL finished){
+        
+    }];
+}
+
+-(void)handleTap:(UIGestureRecognizer*)gesture{
+    [self.searchField.textInputView resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    if ([textField.text length]) {
+        [self searchWithText:textField.text];
+    }
+    return YES;
+}
+
+-(void)searchWithText:(NSString*)text {
+    //Construct a new query
+    
+    PFQuery *titleQueryCaps = [PFQuery queryWithClassName:LISTING_CLASS];
+    PFQuery *titleQuery = [PFQuery queryWithClassName:LISTING_CLASS];
+    [titleQueryCaps whereKey:LISTING_TITLE containsString:text];
+    [titleQuery whereKey:LISTING_TITLE containsString:[text lowercaseString]];
+    PFQuery *descriptionQueryCaps = [PFQuery queryWithClassName:LISTING_CLASS];
+    PFQuery *descriptionQuery = [PFQuery queryWithClassName:LISTING_CLASS];
+    [descriptionQueryCaps whereKey:LISTING_DESCRIPTION containsString:text];
+    [descriptionQuery whereKey:LISTING_DESCRIPTION containsString:[text lowercaseString]];
+
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[titleQuery, titleQueryCaps, descriptionQuery, descriptionQueryCaps]];
+    
+    
+    SearchResultsViewController *svc = [[SearchResultsViewController alloc] initWithStyle:UITableViewStylePlain query:query title:text];
+    NavigationView *navView = ((TheListNavigationViewController*)self.navigationController).navView;
+    navView.hidden = NO;
+    navView.titleLabel.text = text;
+    [self.navigationController pushViewController:svc animated:YES];
 }
 
 @end

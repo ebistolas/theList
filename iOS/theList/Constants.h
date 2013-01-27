@@ -10,7 +10,12 @@
 #define theList_Constants_h
 
 #define NAVBAR_HEIGHT 44
-#define NAVBAR_BACKIMG [UIImage imageNamed:@"arrowLeft.png"]
+#define NAVBAR_BACKIMG [UIImage imageNamed:@"back_arrow.png"]
+
+#define SEARCH_NOTIFICATION @"ListButtonPressedNotification"
+
+#define SEARCH_HEIGHT 60
+#define SEARCH_EXPANDED_HEIGHT 150
 
 #define LISTING_CLASS @"listing"
 #define LISTING_TITLE @"title"

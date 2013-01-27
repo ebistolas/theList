@@ -25,8 +25,14 @@
     TheListNavigationViewController *primaryNavController = [[TheListNavigationViewController alloc] initWithRootViewController:lsvc];
     [primaryNavController setNavigationBarHidden:YES animated:NO];
     
+    UIViewController *vc = [[UIViewController alloc] init];
+    [vc.view setBackgroundColor:[UIColor whiteColor]];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"burger.gif"]];
+    imgView.frame = CGRectMake(0, 0, 200, 568);
+    [vc.view addSubview:imgView];
+    
     [MFSideMenu menuWithNavigationController:primaryNavController
-                                                 sideMenuController:[[UIViewController alloc] init]];
+                                                 sideMenuController:vc];
     
     self.viewController = primaryNavController;
 

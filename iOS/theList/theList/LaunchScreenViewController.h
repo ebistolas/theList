@@ -10,6 +10,6 @@
 #import "LoginViewController.h"
 #import "SearchResultsViewController.h"
 
-@interface LaunchScreenViewController : UIViewController
+@interface LaunchScreenViewController : UIViewController <UITextFieldDelegate>
 
 @end

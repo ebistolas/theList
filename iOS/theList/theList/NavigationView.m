@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = PRICE_COLOR;
     }
     return self;
 }
@@ -28,24 +28,14 @@
     //Setup logo label
     self.alpha = 0.9;
     
-    CGFloat centerPoint = (self.bounds.size.width/2) - 5;
-    
-    UILabel *the = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, centerPoint, self.bounds.size.height)];
-    the.text = @"the";
-    the.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:35];
-    [the setTextAlignment:NSTextAlignmentRight];
-    the.adjustsFontSizeToFitWidth = YES;
-    
-    UILabel *list = [[UILabel alloc] initWithFrame:CGRectMake(centerPoint, 0, self.bounds.size.width/2, self.bounds.size.height)];
-    list.text = @"List";
-    list.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:35];
-    [list setTextAlignment:NSTextAlignmentLeft];
-    list.adjustsFontSizeToFitWidth = YES;
-    
-    [the setBackgroundColor:[UIColor clearColor]];
-    [list setBackgroundColor:[UIColor clearColor]];
-    [self addSubview:the];
-    [self addSubview:list];
+    //Titlebar text
+    self.titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
+    self.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-SemiboldIt" size:28];
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    self.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:self.titleLabel];
     
     //Buttons
     UIButton *leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -66,6 +56,11 @@
     self.rightBarButtonImage.alpha = self.leftBarButtonImage.alpha = 0.75;
     [self addSubview:self.rightBarButtonImage];
     [self addSubview:self.leftBarButtonImage];
+    
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowRadius = 4;
+    self.layer.shadowOpacity = 0.4;
+    self.layer.shadowOffset = CGSizeMake(0, 0);
 }
 
 -(void)leftBarButtonPressed:(id)sender {

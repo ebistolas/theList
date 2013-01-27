@@ -82,21 +82,21 @@
       //User info displayed underneath profile picture
    UILabel *profName = [[UILabel alloc] initWithFrame:CGRectMake(40, picSize.height + 100, 240, 40)];
    profName.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:35];
-   profName.textAlignment = UITextAlignmentCenter;
+   profName.textAlignment = NSTextAlignmentCenter;
    profName.text = name;
    UILabel *profEmail = [[UILabel alloc] initWithFrame:CGRectMake(0, picSize.height + 140, 320, 40)];
    profEmail.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:20];
-   profEmail.textAlignment = UITextAlignmentCenter;
+   profEmail.textAlignment = NSTextAlignmentCenter;
    profEmail.text = email;
    UILabel *profLoc = [[UILabel alloc] initWithFrame:CGRectMake(0, picSize.height + 180, 320, 40)];
    profLoc.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:20];
-   profLoc.textAlignment = UITextAlignmentCenter;
+   profLoc.textAlignment = NSTextAlignmentCenter;
    profLoc.text = location;
    if (bio != nil) {
       UITextView *profBio = [[UITextView alloc] initWithFrame:CGRectMake(0, picSize.height + 220, 320, 90)];
       profBio.editable = NO;
       profBio.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:15];
-      profBio.textAlignment = UITextAlignmentCenter;
+      profBio.textAlignment = NSTextAlignmentCenter;
       profBio.text = bio;
       [self.view addSubview:profBio];
    }

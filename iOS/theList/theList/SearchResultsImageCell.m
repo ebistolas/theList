@@ -16,6 +16,7 @@
     if (self) {
         // Initialization code
         _listing = listing;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -63,7 +64,7 @@
         
         imageView.alpha = 0;
         [UIView animateWithDuration:0.3 animations:^{
-            imageView.alpha = 0.2;
+            imageView.alpha = 0.75;
         }];
     }];
     
