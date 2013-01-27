@@ -106,6 +106,7 @@ img.desaturate { filter: grayscale(100%);
 .header{
 	width: 100%;
 	background-color: pink;
+	text-align: center;
 }
 .col{
 	width: 90%;

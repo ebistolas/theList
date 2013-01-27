@@ -99,7 +99,7 @@ if (Meteor.isClient) {
 		}
 	});
 	
-  	return Users.find({}, {sort: {username: 1}});
+  	return Users.find({name: {$regex: Session.get("search"), $options: 'i' }}, {sort: {username: 1}});
   }
   
   Template.single.posts = function () {
@@ -108,6 +108,7 @@ if (Meteor.isClient) {
 
   Template.hello.events({
     'click' : function (evt) {
+      Session.set("search", $('#search').val());
       Session.set("operation", "showUser");
     }
   });

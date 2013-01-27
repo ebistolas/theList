@@ -99,11 +99,13 @@
 <template name="user">
 	{{#if showUser}}
 	{{#each users}}
-	<div class="user">
-	<img src="{{image}}"><br>
 	
-    <b>{{name}}</b><br>
-    {{description}}<br>
+	<div class="post">
+	<img src="{{image}}" class=desaturate id="{{id}}"><br>
+    <span id="{{id}}">{{name}}</span><br>
+    
+    {{description}}
+   	<br>
     Located in {{location}}
     </div>
     {{/each}}
