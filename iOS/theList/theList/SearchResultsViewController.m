@@ -96,13 +96,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 110;
+    return 130.0f;
 }
 
 #pragma mark scroll view delegates
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"|--%f", scrollView.contentOffset.y);
     if (scrollView.contentOffset.y > -44) {
         __block CGAffineTransform transform;
         
