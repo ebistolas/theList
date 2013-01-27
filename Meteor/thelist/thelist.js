@@ -1,15 +1,47 @@
+
 Posts = new Meteor.Collection("posts");
 Users = new Meteor.Collection("users");
 Parse.initialize("3LJfPumFrT2H1gKJ4Zl31m3bh5bF0hvJbxwbIkz8", "KGkBUO1ToZaesgs5bwzOA0324lJXDm0vmhtY6bEz");
 
 Session.set("offset", 1);
 Session.set("search", " ");
+Session.set("searchBy", "title");
 Session.set("operation", "showList");
 Session.set("light_id", 0);
 
 
 if (Meteor.isClient) {
- 
+	// Router for Pages
+	var Router = Backbone.Router.extend({
+		// remember to implement search by field
+		// ie search/name/:s
+		// or search/category/:s
+		// or search/tag/:s
+		// etc.
+		
+		routes: {
+			"":      "main",
+			"users": "users",
+			"users/:search": "users",
+			"search/:by/:search":	 "search"
+		},
+		main: function () {
+			Session.set("operation", "showList");
+		},
+		users: function (search) {
+			Session.set("search", search);
+			Session.set("operation", "showUser");
+		},
+		search: function (by, term) {
+			Session.set("searchBy", by);
+			Session.set("search", term);
+			Session.set("operation", "showResults");
+		}
+	});
+	
+	var BlogRouter = new Router;
+	Backbone.history.start({pushState: true});
+
  	Meteor.subscribe("posts");
  	Meteor.subscribe("users");
  
@@ -44,7 +76,7 @@ if (Meteor.isClient) {
 			success: function(collection){
 				//console.log(collection);
 				collection.each(function(object){
-					console.log(object['attributes']['images']);
+					//console.log(object['attributes']['images']);
 					Posts.insert({
 						title: object['attributes']['title'], 
 						user: object['attributes']['user'], 
@@ -67,9 +99,16 @@ if (Meteor.isClient) {
 		return Posts.find({}, {sort: {created: -1}});
     }
     else{
-    	return Posts.find({
-    	title: {$regex: Session.get("search"), $options: 'i' }}, 
-    	{sort: {created: -1}});
+    	if(Session.get("searchBy") === 'title'){
+			return Posts.find({
+			title: {$regex: Session.get("search"), $options: 'i' }}, 
+			{sort: {created: -1}});
+    	}
+    	else if(Session.get("searchBy") === 'desc'){
+    		return Posts.find({
+			description: {$regex: Session.get("search"), $options: 'i' }}, 
+			{sort: {created: -1}});
+    	}
     }
   };
   
@@ -237,8 +276,6 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	
-
-	
   Meteor.startup(function () {
 	Meteor.publish("posts", function() {
         return Posts.find({});
@@ -247,9 +284,7 @@ if (Meteor.isServer) {
         return Users.find({});
     });
     
-  });
-  
-  
-  
-  
+});  
+
+
 }
