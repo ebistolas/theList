@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC47020116B4A6010079DF39 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC47020016B4A6010079DF39 /* LoginViewController.m */; };
+		ACDA3D0D16B519A500DD4461 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDA3D0C16B519A500DD4461 /* UserDetailViewController.m */; };
 		F018B0B216B4F8B100516B3A /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F018B0AA16B4F8B100516B3A /* back-arrow.png */; };
 		F018B0B316B4F8B100516B3A /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F018B0AB16B4F8B100516B3A /* back-arrow@2x.png */; };
 		F018B0B416B4F8B100516B3A /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F018B0AC16B4F8B100516B3A /* menu-icon.png */; };
@@ -76,6 +77,8 @@
 /* Begin PBXFileReference section */
 		AC4701FF16B4A6010079DF39 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AC47020016B4A6010079DF39 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		ACDA3D0B16B519A500DD4461 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
+		ACDA3D0C16B519A500DD4461 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
 		F018B0AA16B4F8B100516B3A /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
 		F018B0AB16B4F8B100516B3A /* back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow@2x.png"; sourceTree = "<group>"; };
 		F018B0AC16B4F8B100516B3A /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
@@ -192,6 +195,15 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		ACDA3D0F16B519B300DD4461 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				ACDA3D0B16B519A500DD4461 /* UserDetailViewController.h */,
+				ACDA3D0C16B519A500DD4461 /* UserDetailViewController.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		F018B0A916B4F8B100516B3A /* MFSideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +271,7 @@
 				F0F1724816B5029C009AC961 /* Navbar */,
 				F018B0A916B4F8B100516B3A /* MFSideMenu */,
 				AC47020216B4ABEA0079DF39 /* Login */,
+				ACDA3D0F16B519B300DD4461 /* User */,
 				F0C2A61516B485C9003C4BAC /* Listings */,
 				F0D2A06C16B4AE0A007252F4 /* Resources */,
 				F032EF5016B4688600895675 /* Supporting Files */,
@@ -480,6 +493,7 @@
 				F018B0B716B4F8B100516B3A /* UINavigationController+MFSideMenu.m in Sources */,
 				F018B0BA16B4F9B300516B3A /* NavigationView.m in Sources */,
 				F018B0BD16B4FAEA00516B3A /* TheListNavigationViewController.m in Sources */,
+				ACDA3D0D16B519A500DD4461 /* UserDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +523,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Donald Percivalle (GJ84KWQ5ZG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Donald Percivalle (GJ84KWQ5ZG)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -523,8 +538,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "6634AEAB-064D-4326-B457-4F622645298D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6634AEAB-064D-4326-B457-4F622645298D";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -542,15 +559,18 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Donald Percivalle (GJ84KWQ5ZG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Donald Percivalle (GJ84KWQ5ZG)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "6634AEAB-064D-4326-B457-4F622645298D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6634AEAB-064D-4326-B457-4F622645298D";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

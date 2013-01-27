@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "UserDetailViewController.h"
+#import "TheListNavigationViewController.h"
 
-@interface LoginViewController : UIViewController <NSURLConnectionDelegate>
+@interface LoginViewController : TheListNavigationViewController
+
 
 @property (nonatomic, strong) UIButton *loginButton;
 

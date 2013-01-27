@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TheListNavigationViewController.h"
 
-@interface UserDetailViewController : UIViewController
+@interface UserDetailViewController : TheListNavigationViewController
+
+@property (nonatomic, strong) PFUser *user;
+
+- (void)setSelectedUser:(PFUser *)user;
+
 
 @end

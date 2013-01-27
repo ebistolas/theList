@@ -26,15 +26,8 @@
 - (void)viewDidLoad
 {
    [super viewDidLoad];
-
-   if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-         //DISMISS MODAL VIEW CONTROLLER AND SEND USER TO SEARCH/LAUNCH VIEW
-   }
-
-      // Do any additional setup after loading the view.
-   UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 360, 50)];
-   [self.view addSubview:navBar];
-
+   self.view.backgroundColor = [UIColor whiteColor];
+   
    UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
    [loginButton addTarget:self action:@selector(signUp:) forControlEvents:UIControlEventTouchUpInside];
    [loginButton setTitle:@"Login with Facebook" forState:UIControlStateNormal];
@@ -86,8 +79,7 @@
                   [user setObject:userData[@"bio"] forKey:@"bio"];
                }
                [user save];
-               [self presentViewController:[[UserDetailViewController alloc] initWithNibName:nil bundle:nil]
-                                  animated:YES completion:nil];
+              [self dismissViewControllerAnimated:YES completion:nil];
             }
          }];
 
@@ -95,12 +87,9 @@
       else {
          NSLog(@"User logged in through Facebook!");
             //DISMISS LOGIN VIEW AND BRING USER TO SEARCH/LAUNCH VIEW
-         [self presentViewController:[[UserDetailViewController alloc] initWithNibName:nil bundle:nil]
-                            animated:YES completion:nil];
+         [self dismissViewControllerAnimated:YES completion:nil];
       }
-   }];
-
-   
+   }];   
 }
 
 @end
