@@ -22,9 +22,15 @@
     // Override point for customization after application launch.
     
     LaunchScreenViewController* lsvc = [[LaunchScreenViewController alloc] init];
-    self.viewController = [[UINavigationController alloc] initWithRootViewController:lsvc];
+    TheListNavigationViewController *primaryNavController = [[TheListNavigationViewController alloc] initWithRootViewController:lsvc];
+    [primaryNavController setNavigationBarHidden:YES animated:NO];
+    
+    [MFSideMenu menuWithNavigationController:primaryNavController
+                                                 sideMenuController:[[UIViewController alloc] init]];
+    
+    self.viewController = primaryNavController;
 
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = primaryNavController;
     [self.window makeKeyAndVisible];
     return YES;
 }

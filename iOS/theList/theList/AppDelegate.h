@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "LaunchScreenViewController.h"
+#import "MFSideMenu.h"
+#import "TheListNavigationViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) UINavigationController *viewController;
+@property (strong, nonatomic) UIViewController *viewController;
 
 @end

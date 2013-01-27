@@ -9,6 +9,9 @@
 #ifndef theList_Constants_h
 #define theList_Constants_h
 
+#define NAVBAR_HEIGHT 44
+#define NAVBAR_BACKIMG [UIImage imageNamed:@"arrowLeft.png"]
+
 #define LISTING_CLASS @"listing"
 #define LISTING_TITLE @"title"
 #define LISTING_CATEGORY @"category"

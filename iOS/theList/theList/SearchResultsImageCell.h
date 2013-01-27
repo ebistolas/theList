@@ -9,14 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface SearchResultsImageCell : UITableViewCell <UIScrollViewDelegate> {
+@interface SearchResultsImageCell : UITableViewCell {
     UILabel *_titleLabel;
     UILabel *_descriptionLabel;
     UILabel *_priceLabel;
-    CGFloat scrollImageOffset;
 }
 
 @property (nonatomic, strong) PFObject *listing;
-@property (nonatomic, strong) UIScrollView *scrollView;
+
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier listing:(PFObject*)listing;
 
 @end
