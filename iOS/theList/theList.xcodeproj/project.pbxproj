@@ -32,8 +32,9 @@
 		F032EF8816B46BD200895675 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF8716B46BD200895675 /* StoreKit.framework */; };
 		F032EF8A16B46BD800895675 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF8916B46BD800895675 /* SystemConfiguration.framework */; };
 		F0A9DAC916B49D7700CB63A2 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A9DAC816B49D7700CB63A2 /* LaunchScreenViewController.m */; };
-		F0C2A61E16B48A14003C4BAC /* SearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2A61D16B48A14003C4BAC /* SearchManager.m */; };
-		F0C2A62116B48C93003C4BAC /* ListingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2A62016B48C93003C4BAC /* ListingsViewController.m */; };
+		F0D2A06616B4A775007252F4 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D2A06516B4A775007252F4 /* SearchResultsViewController.m */; };
+		F0D2A06916B4A960007252F4 /* SearchResultsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D2A06816B4A960007252F4 /* SearchResultsListCell.m */; };
+		F0D2A06B16B4AE05007252F4 /* search_list_sell_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D2A06A16B4AE05007252F4 /* search_list_sell_background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,10 +70,11 @@
 		F0A9DAC716B49D7700CB63A2 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
 		F0A9DAC816B49D7700CB63A2 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		F0C2A61116B483FE003C4BAC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
-		F0C2A61C16B48A14003C4BAC /* SearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchManager.h; sourceTree = "<group>"; };
-		F0C2A61D16B48A14003C4BAC /* SearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchManager.m; sourceTree = "<group>"; };
-		F0C2A61F16B48C93003C4BAC /* ListingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListingsViewController.h; path = ../ListingsViewController.h; sourceTree = "<group>"; };
-		F0C2A62016B48C93003C4BAC /* ListingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListingsViewController.m; path = ../ListingsViewController.m; sourceTree = "<group>"; };
+		F0D2A06416B4A775007252F4 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultsViewController.h; path = ../SearchResultsViewController.h; sourceTree = "<group>"; };
+		F0D2A06516B4A775007252F4 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultsViewController.m; path = ../SearchResultsViewController.m; sourceTree = "<group>"; };
+		F0D2A06716B4A960007252F4 /* SearchResultsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultsListCell.h; path = ../SearchResultsListCell.h; sourceTree = "<group>"; };
+		F0D2A06816B4A960007252F4 /* SearchResultsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultsListCell.m; path = ../SearchResultsListCell.m; sourceTree = "<group>"; };
+		F0D2A06A16B4AE05007252F4 /* search_list_sell_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_list_sell_background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				F0A9DAC816B49D7700CB63A2 /* LaunchScreenViewController.m */,
 				AC47020216B4ABEA0079DF39 /* Login */,
 				F0C2A61516B485C9003C4BAC /* Listings */,
+				F0D2A06C16B4AE0A007252F4 /* Resources */,
 				F032EF5016B4688600895675 /* Supporting Files */,
 			);
 			path = theList;
@@ -185,12 +188,28 @@
 		F0C2A61516B485C9003C4BAC /* Listings */ = {
 			isa = PBXGroup;
 			children = (
-				F0C2A61F16B48C93003C4BAC /* ListingsViewController.h */,
-				F0C2A62016B48C93003C4BAC /* ListingsViewController.m */,
-				F0C2A61C16B48A14003C4BAC /* SearchManager.h */,
-				F0C2A61D16B48A14003C4BAC /* SearchManager.m */,
+				F0D2A06416B4A775007252F4 /* SearchResultsViewController.h */,
+				F0D2A06516B4A775007252F4 /* SearchResultsViewController.m */,
+				F0D2A06716B4A960007252F4 /* SearchResultsListCell.h */,
+				F0D2A06816B4A960007252F4 /* SearchResultsListCell.m */,
 			);
 			name = Listings;
+			sourceTree = "<group>";
+		};
+		F0D2A06C16B4AE0A007252F4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F0D2A06D16B4AE14007252F4 /* Search list cell */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F0D2A06D16B4AE14007252F4 /* Search list cell */ = {
+			isa = PBXGroup;
+			children = (
+				F0D2A06A16B4AE05007252F4 /* search_list_sell_background.png */,
+			);
+			name = "Search list cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +267,7 @@
 				F032EF5C16B4688600895675 /* Default.png in Resources */,
 				F032EF5E16B4688600895675 /* Default@2x.png in Resources */,
 				F032EF6016B4688600895675 /* Default-568h@2x.png in Resources */,
+				F0D2A06B16B4AE05007252F4 /* search_list_sell_background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,10 +280,10 @@
 			files = (
 				F032EF5616B4688600895675 /* main.m in Sources */,
 				F032EF5A16B4688600895675 /* AppDelegate.m in Sources */,
-				F0C2A61E16B48A14003C4BAC /* SearchManager.m in Sources */,
-				F0C2A62116B48C93003C4BAC /* ListingsViewController.m in Sources */,
 				F0A9DAC916B49D7700CB63A2 /* LaunchScreenViewController.m in Sources */,
 				AC47020116B4A6010079DF39 /* LoginViewController.m in Sources */,
+				F0D2A06616B4A775007252F4 /* SearchResultsViewController.m in Sources */,
+				F0D2A06916B4A960007252F4 /* SearchResultsListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
