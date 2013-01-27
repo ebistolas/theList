@@ -29,6 +29,8 @@
 
 //Colors
 #define PRICE_COLOR [UIColor colorWithRed:239/255.0 green:65/255.0 blue:35/255.0 alpha:1]
+#define TEXT_COLOR [UIColor colorWithRed:58/255.0 green:58/255.0 blue:59/255.0 alpha:1]
+
 
 
 #endif
