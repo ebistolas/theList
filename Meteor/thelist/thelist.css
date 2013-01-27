@@ -1,10 +1,112 @@
 /* CSS declarations go here */
 .post{
-	border: 1px solid black;
-	min-width: 300px;
-	min-height: 200px;
-	max-width: 300px;
+	float: left;
+	border: 0px solid black;
+	width: 60%;
+	margin-top: 10px;
+    box-shadow: 0px 1px 3px #888888;
+}
+.post span{
+	cursor: pointer;
+	float: left;
+	font-weight: bold;
+	margin-right: 5px;
+}
+.post img{
+	cursor: pointer;
+	float: left;
+	width: 30%;
+}
+
+.lightbox {
+	position: fixed;
+	top: 35px;
+    width:70%;
+    height: 90%;
+    left:50%;
+    z-index:1000;
+    margin-left: -35%;
+	background-size: 100%;
+	background-color: white;
+}
+.lightbox #img{
+	display: none;
+	cursor: pointer;
+	width: 200px;
+}
+.lightbox h1{
+
+	position: absolute;
+	bottom: -10px;
+	font-size: 200%	;
+	height: 30px;
+	width: 100%;
+	background-color: white;
+	z-index: 100;
+}
+.lightbox h1 h{
 	
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	font-size: 80%	;
+}
+.lightbox span{
+	position: absolute;
+	bottom: 50px;
+	width: 100%;
+	background-color: white;
+	opacity:0.9;
+	z-index: 100;
+}
+.lightbox .left{
+	cursor: pointer;
+	border: 1px solid black;
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	width: 20px;
+	height: 20%;
+	background-color: white;
+}
+.lightbox .right{
+	cursor: pointer;
+	border: 1px solid black;
+	position: absolute;
+	top: 50px;
+	right: 0px;
+	width: 20px;
+	height: 20%;
+	background-color: white;
+}
+
+.lightbox .exit{
+	cursor: pointer;
+	border: 1px solid black;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 15px;
+	height: 15px;
+	background-color: white;
+}
+
+
+img.desaturate { filter: grayscale(100%);
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+}
+
+.header{
+	width: 100%;
+	background-color: pink;
+}
+.col{
+	width: 90%;
+	height: 100%;
+	margin-left: 15%;
 }
 .user{
 	border: 0px solid black;
@@ -14,4 +116,7 @@
 }
 .user img{
 	max-width: 100px;
+}
+
+body{
 }

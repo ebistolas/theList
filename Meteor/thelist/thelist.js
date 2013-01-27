@@ -2,10 +2,10 @@ Posts = new Meteor.Collection("posts");
 Users = new Meteor.Collection("users");
 Parse.initialize("3LJfPumFrT2H1gKJ4Zl31m3bh5bF0hvJbxwbIkz8", "KGkBUO1ToZaesgs5bwzOA0324lJXDm0vmhtY6bEz");
 
-Session.set("offset", 0);
+Session.set("offset", 1);
 Session.set("search", " ");
 Session.set("operation", "showList");
-
+Session.set("light_id", 0);
 
 
 if (Meteor.isClient) {
@@ -18,13 +18,10 @@ if (Meteor.isClient) {
   };
   
   Template.list.showList = function(){
-    return Session.get("operation") == 'showList';
+    return Session.get("operation") == 'showList' || Session.get("operation") == 'showResults';
   	//return false;
   }
-   Template.results.showResults = function(){
-    return Session.get("operation") == 'showResults';
-  	//return true;
-  }
+   
   
   Template.single.showSingle = function(){
   	return Session.get("operation") == 'showSingle';
@@ -34,8 +31,11 @@ if (Meteor.isClient) {
   }
   Template.new.showNew = function(){
   	return Session.get("operation") == 'showNew';
+  	//return true;
   }
  Template.list.posts = function () {
+ 	if(Session.get("operation") == 'showList'){
+	 
 	Posts.remove({});
 	var Listing = Parse.Object.extend('listing');
 	var query = new Parse.Query(Listing);
@@ -44,16 +44,18 @@ if (Meteor.isClient) {
 		success: function(collection){
 			//console.log(collection);
 			collection.each(function(object){
-				//console.log(object);
+				console.log(object['attributes']['images']);
 				Posts.insert({
 					title: object['attributes']['title'], 
 					user: object['attributes']['user'], 
 					image: object['attributes']['imgurl'],
+					images: object['attributes']['images'],
 					sold: object['attributes']['sold'],
 					category: object['attributes']['category'],
 					description: object['attributes']['description'],
 					price: object['attributes']['price'],
-					created: object['createdAt'] 
+					created: object['createdAt'],
+					id: object['id']
 					});
 			});
 		},
@@ -62,7 +64,11 @@ if (Meteor.isClient) {
 		}
 	});
  
-    	return Posts.find({}, {sort: {created: -1}});
+    return Posts.find({}, {sort: {created: -1}});
+    }
+    else{
+    	return Posts.find({title: {$regex: Session.get("search"), $options: 'i' }}, {sort: {created: -1}});
+    }
   };
   
   Template.user.users = function(){
@@ -93,17 +99,13 @@ if (Meteor.isClient) {
 	
   	return Users.find({}, {sort: {username: 1}});
   }
-  Template.results.posts = function () {
-    	var res = Posts.find({title: {$regex: Session.get("search"), $options: 'i' }}, {sort: {created: -1}});
-    	return res;
-  }
   
   Template.single.posts = function () {
     console.log(Session.get("offset"));
   };
 
   Template.hello.events({
-    'click input.nex' : function () {
+    'click' : function (evt) {
       Session.set("operation", "showUser");
     }
   });
@@ -153,7 +155,75 @@ if (Meteor.isClient) {
   	
   });
   
+  Template.list.events({
+    'click' : function (evt) {
+      if($(evt.target).attr("id")){
+      	var e = $(evt.target).attr("id");
+  	  	//alert(e);
+  	  	Session.set("light_id", e);
+  	  	// This is where we pop up the lightbox
+  	  }
+    }
+  });
    
+  Template.light.posts = function(){
+     return Posts.find({id: Session.get("light_id")});
+  }
+   
+  Template.light.showLight = function () {
+  	return Session.get("light_id");
+  }
+  Template.light.events({
+    'click' : function (evt) {
+      var id;
+      if(id = $(evt.target).attr("id")){
+      	var src;
+      	if(src = $(evt.target).attr("src")){
+      		$(evt.target).parent().parent().css("background-image", "url("+src+")");
+      	}
+  	  	else if(id === 'l'){
+  	  		var ids = $(evt.target).parent().find('img').map(function(){
+                       return this.src;
+                   }).get();
+  	  		//alert(ids[Session.get("offset")]);
+  	  		
+  	  		if(Session.get("offset") === -1){
+  	  			Session.set("offset", ids.length)
+  	  		}
+  	  		
+  	  		$(evt.target).parent().css("background-image", "url("+ids[Session.get("offset")]+")");
+  	  		Session.set("offset", Session.get("offset") - 1);
+  	  	}
+  	  	else if(id === 'r'){
+  	  		var ids = $(evt.target).parent().find('img').map(function(){
+                       return this.src;
+                   }).get();
+            
+            if(Session.get("offset") === ids.length){
+  	  			Session.set("offset", 0)
+  	  		}
+        	
+  	  		$(evt.target).parent().css("background-image", "url("+ids[Session.get("offset")]+")");
+  	  		Session.set("offset", Session.get("offset") + 1);
+  	  		
+  	  	}
+  	  	else{
+  	  		Session.set("light_id", 0);
+  	  		Session.set("offset", 1);
+  	  	}
+  	  	// This is where we pop up the lightbox
+  	  }
+    }
+  });
+  
+  
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) { 
+			Session.set("light_id", 0);
+  	  		Session.set("offset", 1);
+		 }   // esc
+	});
+  
 }
 
 if (Meteor.isServer) {
