@@ -65,58 +65,78 @@ if (Meteor.isClient) {
   	//return true;
   }
  Template.list.posts = function () {
- 	if(Session.get("operation") == 'showList'){
-	 
-		Posts.remove({});
-		var Listing = Parse.Object.extend('listing');
-		var query = new Parse.Query(Listing);
-		var collection = query.collection();
-		collection.fetch({
-			success: function(collection){
-				//console.log(collection);
-				collection.each(function(object){
-					//console.log(object['attributes']['images']);
-					Posts.insert({
-						title: object['attributes']['title'], 
-						user: object['attributes']['user'], 
-						images: object['attributes']['images'],
-						sold: object['attributes']['sold'],
-						category: object['attributes']['category'],
-						description: object['attributes']['description'],
-						price: object['attributes']['price'],
-						tags: object['attributes']['tags'],
-						created: object['createdAt'],
-						id: object['id']
-						});
-				});
-			},
-			error: function(collection, error){
-				console.log(error);
-			}
-		});
-	 
-		return Posts.find({}, {sort: {created: -1}});
+    if(Session.get("operation") == 'showList'){
+
+      Posts.remove({});
+      var Listing = Parse.Object.extend('listing');
+      var query = new Parse.Query(Listing);
+      var collection = query.collection();
+      collection.fetch({
+      	success: function(collection){
+      		//console.log(collection);
+      		collection.each(function(object){
+      			//console.log(object['attributes']['images']);
+      			Posts.insert({
+      				title: object['attributes']['title'], 
+      				user: object['attributes']['user'], 
+      				images: object['attributes']['images'],
+      				sold: object['attributes']['sold'],
+      				category: object['attributes']['category'],
+      				description: object['attributes']['description'],
+      				price: object['attributes']['price'],
+      				tags: object['attributes']['tags'],
+      				created: object['createdAt'],
+      				id: object['id']
+      				});
+      		});
+      	},
+      	error: function(collection, error){
+      		console.log(error);
+      	}
+      });
+
+      // var searchResults = Posts.find({}, {sort: {created: -1}});
+      // debugger;
+      // var gridListings = [[]];
+      // for (var index, row = 0; index <= searchResults.length; index++) {
+
+      //   gridListings[row].push(searchResults[index]);
+
+      //   if(row % 3 == 0) {
+      //     row++;
+      //     gridListings[row] = [];
+      //   }
+      // };
+
+      // // return default homepage search sorted into three element arrays for gridification
+      // debugger;
+      // Session.set('foo', gridListings);
+      // return gridListings;
+
+      // return default homepage search
+      return Posts.find({}, {sort: {created: -1}});
     }
+
     else{
     	if(Session.get("searchBy") === 'title'){
-			return Posts.find({
-			title: {$regex: Session.get("search"), $options: 'i' }}, 
-			{sort: {created: -1}});
+  			return Posts.find({
+  			title: {$regex: Session.get("search"), $options: 'i' }}, 
+  			{sort: {created: -1}});
     	}
     	else if(Session.get("searchBy") === 'desc'){
     		return Posts.find({
-			description: {$regex: Session.get("search"), $options: 'i' }}, 
-			{sort: {created: -1}});
+			    description: {$regex: Session.get("search"), $options: 'i' }}, 
+			  {sort: {created: -1}});
     	}
-		else if(Session.get("searchBy") === 'cat'){
+		  else if(Session.get("searchBy") === 'cat'){
     		return Posts.find({
-			category: {$regex: Session.get("search"), $options: 'i' }}, 
-			{sort: {created: -1}});
+			  category: {$regex: Session.get("search"), $options: 'i' }}, 
+			  {sort: {created: -1}});
     	}
     	else if(Session.get("searchBy") === 'tag'){
     		return Posts.find({
-			tags: {$regex: Session.get("search"), $options: 'i' }}, 
-			{sort: {created: -1}});
+			  tags: {$regex: Session.get("search"), $options: 'i' }}, 
+			  {sort: {created: -1}});
     	}
     }
   };

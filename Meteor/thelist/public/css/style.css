@@ -481,3 +481,30 @@
 		{
 			color: inherit;
 		}
+
+/*********************************************************************************/
+/* Listings                                                                      */
+/*********************************************************************************/
+
+	.listing {
+		border: 1px dotted black;
+		display: inline-block;
+	}
+
+	.listing-title {
+		font-size: 1.35em;
+	}
+
+	.listing-seller-name {
+		font-size: .8em;
+		font-weight: 200;
+	}
+
+	.listing-image {
+		max-width: 100%;
+	}
+
+	.third {
+		width: 300px;
+		margin: 20px;
+	}
