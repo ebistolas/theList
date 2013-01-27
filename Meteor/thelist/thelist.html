@@ -6,6 +6,7 @@
   <div class="header">
   {{> hello}}
   {{> search}}
+  <a href="/users">View Users</a><br>
   </div>
  
   <div class="col">
@@ -20,7 +21,7 @@
 
 <template name="hello">
   <h1>The List</h1>
-  <input type="button" class="nex" value="users" />
+  <!-- <input type="button" class="nex" value="users" / -->
 </template>
 
 <template name="list">
@@ -125,7 +126,7 @@
 
 <template name="search">
 <br>
-Search:<input type="text" id="search">
+<input type="text" id="search" placeholder="search">
 <input type="button" class="inc" value="Go!" />
 	 <br>
 </template>

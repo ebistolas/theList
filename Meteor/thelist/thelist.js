@@ -13,25 +13,24 @@ Session.set("light_id", 0);
 if (Meteor.isClient) {
 	// Router for Pages
 	var Router = Backbone.Router.extend({
-		// remember to implement search by field
-		// ie search/name/:s
-		// or search/category/:s
-		// or search/tag/:s
-		// etc.
-		
 		routes: {
 			"":      "main",
 			"users": "users",
 			"users/:search": "users",
-			"search/:by/:search":	 "search"
+			"search/:by/:search":	 "search",
 		},
 		main: function () {
 			Session.set("operation", "showList");
 		},
-		users: function (search) {
-			Session.set("search", search);
+		users: function (user) {
+			Session.set("search", user);
 			Session.set("operation", "showUser");
 		},
+		// search can be done by
+		// /search/desc/?
+		// /search/title/?
+		// /search/cat/?
+		// /search/tag/?
 		search: function (by, term) {
 			Session.set("searchBy", by);
 			Session.set("search", term);
@@ -109,6 +108,16 @@ if (Meteor.isClient) {
 			description: {$regex: Session.get("search"), $options: 'i' }}, 
 			{sort: {created: -1}});
     	}
+		else if(Session.get("searchBy") === 'cat'){
+    		return Posts.find({
+			category: {$regex: Session.get("search"), $options: 'i' }}, 
+			{sort: {created: -1}});
+    	}
+    	else if(Session.get("searchBy") === 'tag'){
+    		return Posts.find({
+			tags: {$regex: Session.get("search"), $options: 'i' }}, 
+			{sort: {created: -1}});
+    	}
     }
   };
   
@@ -147,8 +156,8 @@ if (Meteor.isClient) {
 
   Template.hello.events({
     'click' : function (evt) {
-      Session.set("search", $('#search').val());
-      Session.set("operation", "showUser");
+      //Session.set("search", "");
+      //Session.set("operation", "showList");
     }
   });
   
@@ -171,10 +180,12 @@ if (Meteor.isClient) {
   Template.search.events({
   	'click input.inc' : function(){
   		if($('#search').val() === ""){
+  			Session.set("searchBy", "title");
   			Session.set("search", " ");
   			Session.set("operation", "showList");
   		}
   		else{
+  			Session.set("searchBy", "title");
   			Session.set("search", $('#search').val());
   			Session.set("operation", "showResults");
   		}
