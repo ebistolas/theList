@@ -391,7 +391,7 @@
 
 	#header-wrapper
 	{
-		margin-bottom: 180px;
+		margin-bottom: 170px;
 	}
 	
 	#banner-wrapper
@@ -442,6 +442,12 @@
 			font-weight: 800;
 		}
 	
+	#moto {
+		display: inline-block;
+		position: relative;
+		top: -6px;
+	}
+
 /*********************************************************************************/
 /* Banner                                                                        */
 /*********************************************************************************/
