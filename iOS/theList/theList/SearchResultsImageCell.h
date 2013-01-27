@@ -1,5 +1,5 @@
 //
-//  SearchResultsListCell.h
+//  SearchResultsImageCell.h
 //  theList
 //
 //  Created by Eugene Bistolas on 1/26/13.
@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchResultsListCell : UITableViewCell {
+@interface SearchResultsImageCell : UITableViewCell <UIScrollViewDelegate> {
     UILabel *_titleLabel;
     UILabel *_descriptionLabel;
     UILabel *_priceLabel;
+    CGFloat scrollImageOffset;
 }
 
 @property (nonatomic, strong) PFObject *listing;
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end

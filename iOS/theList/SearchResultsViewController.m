@@ -17,8 +17,8 @@
 - (id)initWithClassName:(NSString *)aClassName {
     self = [super initWithClassName:aClassName];
     if (self) {
-        [self.tableView registerClass:[SearchResultsListCell class] forCellReuseIdentifier:@"cell"];
-        NSLog(@"Class name is %@", aClassName);
+        [self.tableView registerClass:[SearchResultsImageCell class] forCellReuseIdentifier:@"cell"];
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLineEtched];
     }
     return self;
 }
@@ -38,18 +38,19 @@
 #pragma mark UITableView delegate stuff
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 84.0f;
+    return 170.0f;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SearchResultsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    SearchResultsImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
-        cell = [[SearchResultsListCell alloc] initWithStyle:UITableViewCellStyleDefault
+        cell = [[SearchResultsImageCell alloc] initWithStyle:UITableViewCellStyleDefault
                                   reuseIdentifier:@"cell"];
     }
     
     PFObject *dataObject = [self.objects objectAtIndex:indexPath.row];
-    cell.textLabel.text = [dataObject objectForKey:LISTING_TITLE];
+    cell.listing = dataObject;
+    
     
     return cell;
 }

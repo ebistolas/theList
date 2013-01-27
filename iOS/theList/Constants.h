@@ -27,5 +27,8 @@
 #define USER_POSTS @"posts"
 #define USER_RATING @"rating"
 
+//Colors
+#define PRICE_COLOR [UIColor colorWithRed:239/255.0 green:65/255.0 blue:35/255.0 alpha:1]
+
 
 #endif

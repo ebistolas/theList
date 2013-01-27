@@ -8,6 +8,7 @@
 
 #import <Parse/Parse.h>
 #import "SearchResultsListCell.h"
+#import "SearchResultsImageCell.h"
 
 @interface SearchResultsViewController : PFQueryTableViewController
 

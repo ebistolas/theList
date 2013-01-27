@@ -32,6 +32,17 @@
 		F032EF8816B46BD200895675 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF8716B46BD200895675 /* StoreKit.framework */; };
 		F032EF8A16B46BD800895675 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F032EF8916B46BD800895675 /* SystemConfiguration.framework */; };
 		F0A9DAC916B49D7700CB63A2 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A9DAC816B49D7700CB63A2 /* LaunchScreenViewController.m */; };
+		F0C877AA16B4B89F004A8E30 /* fatcat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0C877A416B4B89F004A8E30 /* fatcat.jpg */; };
+		F0C877AB16B4B89F004A8E30 /* fixie1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0C877A516B4B89F004A8E30 /* fixie1.jpg */; };
+		F0C877AC16B4B89F004A8E30 /* fixie2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0C877A616B4B89F004A8E30 /* fixie2.jpg */; };
+		F0C877AD16B4B89F004A8E30 /* fixie3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0C877A716B4B89F004A8E30 /* fixie3.jpg */; };
+		F0C877AE16B4B89F004A8E30 /* gti.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0C877A816B4B89F004A8E30 /* gti.jpg */; };
+		F0C877AF16B4B89F004A8E30 /* macbook.png in Resources */ = {isa = PBXBuildFile; fileRef = F0C877A916B4B89F004A8E30 /* macbook.png */; };
+		F0C877B516B4C035004A8E30 /* Rambla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0C877B016B4BF60004A8E30 /* Rambla-Bold.ttf */; };
+		F0C877B616B4C035004A8E30 /* Rambla-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0C877B116B4BF60004A8E30 /* Rambla-BoldItalic.ttf */; };
+		F0C877B716B4C035004A8E30 /* Rambla-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0C877B216B4BF60004A8E30 /* Rambla-Italic.ttf */; };
+		F0C877B816B4C035004A8E30 /* Rambla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0C877B316B4BF60004A8E30 /* Rambla-Regular.ttf */; };
+		F0C877BB16B4C9D8004A8E30 /* SearchResultsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C877BA16B4C9D8004A8E30 /* SearchResultsImageCell.m */; };
 		F0D2A06616B4A775007252F4 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D2A06516B4A775007252F4 /* SearchResultsViewController.m */; };
 		F0D2A06916B4A960007252F4 /* SearchResultsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D2A06816B4A960007252F4 /* SearchResultsListCell.m */; };
 		F0D2A06B16B4AE05007252F4 /* search_list_sell_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D2A06A16B4AE05007252F4 /* search_list_sell_background.png */; };
@@ -70,6 +81,18 @@
 		F0A9DAC716B49D7700CB63A2 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
 		F0A9DAC816B49D7700CB63A2 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		F0C2A61116B483FE003C4BAC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
+		F0C877A416B4B89F004A8E30 /* fatcat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fatcat.jpg; sourceTree = "<group>"; };
+		F0C877A516B4B89F004A8E30 /* fixie1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fixie1.jpg; sourceTree = "<group>"; };
+		F0C877A616B4B89F004A8E30 /* fixie2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fixie2.jpg; sourceTree = "<group>"; };
+		F0C877A716B4B89F004A8E30 /* fixie3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fixie3.jpg; sourceTree = "<group>"; };
+		F0C877A816B4B89F004A8E30 /* gti.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gti.jpg; sourceTree = "<group>"; };
+		F0C877A916B4B89F004A8E30 /* macbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macbook.png; sourceTree = "<group>"; };
+		F0C877B016B4BF60004A8E30 /* Rambla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rambla-Bold.ttf"; sourceTree = "<group>"; };
+		F0C877B116B4BF60004A8E30 /* Rambla-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rambla-BoldItalic.ttf"; sourceTree = "<group>"; };
+		F0C877B216B4BF60004A8E30 /* Rambla-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rambla-Italic.ttf"; sourceTree = "<group>"; };
+		F0C877B316B4BF60004A8E30 /* Rambla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rambla-Regular.ttf"; sourceTree = "<group>"; };
+		F0C877B916B4C9D8004A8E30 /* SearchResultsImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsImageCell.h; sourceTree = "<group>"; };
+		F0C877BA16B4C9D8004A8E30 /* SearchResultsImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsImageCell.m; sourceTree = "<group>"; };
 		F0D2A06416B4A775007252F4 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultsViewController.h; path = ../SearchResultsViewController.h; sourceTree = "<group>"; };
 		F0D2A06516B4A775007252F4 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultsViewController.m; path = ../SearchResultsViewController.m; sourceTree = "<group>"; };
 		F0D2A06716B4A960007252F4 /* SearchResultsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultsListCell.h; path = ../SearchResultsListCell.h; sourceTree = "<group>"; };
@@ -192,13 +215,41 @@
 				F0D2A06516B4A775007252F4 /* SearchResultsViewController.m */,
 				F0D2A06716B4A960007252F4 /* SearchResultsListCell.h */,
 				F0D2A06816B4A960007252F4 /* SearchResultsListCell.m */,
+				F0C877B916B4C9D8004A8E30 /* SearchResultsImageCell.h */,
+				F0C877BA16B4C9D8004A8E30 /* SearchResultsImageCell.m */,
 			);
 			name = Listings;
+			sourceTree = "<group>";
+		};
+		F0C877A316B4B6B5004A8E30 /* Item images */ = {
+			isa = PBXGroup;
+			children = (
+				F0C877A416B4B89F004A8E30 /* fatcat.jpg */,
+				F0C877A516B4B89F004A8E30 /* fixie1.jpg */,
+				F0C877A616B4B89F004A8E30 /* fixie2.jpg */,
+				F0C877A716B4B89F004A8E30 /* fixie3.jpg */,
+				F0C877A816B4B89F004A8E30 /* gti.jpg */,
+				F0C877A916B4B89F004A8E30 /* macbook.png */,
+			);
+			name = "Item images";
+			sourceTree = "<group>";
+		};
+		F0C877B416B4BF66004A8E30 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F0C877B016B4BF60004A8E30 /* Rambla-Bold.ttf */,
+				F0C877B116B4BF60004A8E30 /* Rambla-BoldItalic.ttf */,
+				F0C877B216B4BF60004A8E30 /* Rambla-Italic.ttf */,
+				F0C877B316B4BF60004A8E30 /* Rambla-Regular.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		F0D2A06C16B4AE0A007252F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F0C877B416B4BF66004A8E30 /* Fonts */,
+				F0C877A316B4B6B5004A8E30 /* Item images */,
 				F0D2A06D16B4AE14007252F4 /* Search list cell */,
 			);
 			name = Resources;
@@ -263,11 +314,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C877B516B4C035004A8E30 /* Rambla-Bold.ttf in Resources */,
+				F0C877B616B4C035004A8E30 /* Rambla-BoldItalic.ttf in Resources */,
+				F0C877B716B4C035004A8E30 /* Rambla-Italic.ttf in Resources */,
+				F0C877B816B4C035004A8E30 /* Rambla-Regular.ttf in Resources */,
 				F032EF5416B4688600895675 /* InfoPlist.strings in Resources */,
 				F032EF5C16B4688600895675 /* Default.png in Resources */,
 				F032EF5E16B4688600895675 /* Default@2x.png in Resources */,
 				F032EF6016B4688600895675 /* Default-568h@2x.png in Resources */,
 				F0D2A06B16B4AE05007252F4 /* search_list_sell_background.png in Resources */,
+				F0C877AA16B4B89F004A8E30 /* fatcat.jpg in Resources */,
+				F0C877AB16B4B89F004A8E30 /* fixie1.jpg in Resources */,
+				F0C877AC16B4B89F004A8E30 /* fixie2.jpg in Resources */,
+				F0C877AD16B4B89F004A8E30 /* fixie3.jpg in Resources */,
+				F0C877AE16B4B89F004A8E30 /* gti.jpg in Resources */,
+				F0C877AF16B4B89F004A8E30 /* macbook.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +345,7 @@
 				AC47020116B4A6010079DF39 /* LoginViewController.m in Sources */,
 				F0D2A06616B4A775007252F4 /* SearchResultsViewController.m in Sources */,
 				F0D2A06916B4A960007252F4 /* SearchResultsListCell.m in Sources */,
+				F0C877BB16B4C9D8004A8E30 /* SearchResultsImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
