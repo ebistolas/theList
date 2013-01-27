@@ -1,15 +1,46 @@
+
 Posts = new Meteor.Collection("posts");
 Users = new Meteor.Collection("users");
 Parse.initialize("3LJfPumFrT2H1gKJ4Zl31m3bh5bF0hvJbxwbIkz8", "KGkBUO1ToZaesgs5bwzOA0324lJXDm0vmhtY6bEz");
 
 Session.set("offset", 1);
 Session.set("search", " ");
+Session.set("searchBy", "title");
 Session.set("operation", "showList");
 Session.set("light_id", 0);
 
 
 if (Meteor.isClient) {
- 
+	// Router for Pages
+	var Router = Backbone.Router.extend({
+		routes: {
+			"":      "main",
+			"users": "users",
+			"users/:search": "users",
+			"search/:by/:search":	 "search",
+		},
+		main: function () {
+			Session.set("operation", "showList");
+		},
+		users: function (user) {
+			Session.set("search", user);
+			Session.set("operation", "showUser");
+		},
+		// search can be done by
+		// /search/desc/?
+		// /search/title/?
+		// /search/cat/?
+		// /search/tag/?
+		search: function (by, term) {
+			Session.set("searchBy", by);
+			Session.set("search", term);
+			Session.set("operation", "showResults");
+		}
+	});
+	
+	var BlogRouter = new Router;
+	Backbone.history.start({pushState: true});
+
  	Meteor.subscribe("posts");
  	Meteor.subscribe("users");
  
@@ -36,38 +67,57 @@ if (Meteor.isClient) {
  Template.list.posts = function () {
  	if(Session.get("operation") == 'showList'){
 	 
-	Posts.remove({});
-	var Listing = Parse.Object.extend('listing');
-	var query = new Parse.Query(Listing);
-	var collection = query.collection();
-	collection.fetch({
-		success: function(collection){
-			//console.log(collection);
-			collection.each(function(object){
-				console.log(object['attributes']['images']);
-				Posts.insert({
-					title: object['attributes']['title'], 
-					user: object['attributes']['user'], 
-					image: object['attributes']['imgurl'],
-					images: object['attributes']['images'],
-					sold: object['attributes']['sold'],
-					category: object['attributes']['category'],
-					description: object['attributes']['description'],
-					price: object['attributes']['price'],
-					created: object['createdAt'],
-					id: object['id']
-					});
-			});
-		},
-		error: function(collection, error){
-			console.log(error);
-		}
-	});
- 
-    return Posts.find({}, {sort: {created: -1}});
+		Posts.remove({});
+		var Listing = Parse.Object.extend('listing');
+		var query = new Parse.Query(Listing);
+		var collection = query.collection();
+		collection.fetch({
+			success: function(collection){
+				//console.log(collection);
+				collection.each(function(object){
+					//console.log(object['attributes']['images']);
+					Posts.insert({
+						title: object['attributes']['title'], 
+						user: object['attributes']['user'], 
+						images: object['attributes']['images'],
+						sold: object['attributes']['sold'],
+						category: object['attributes']['category'],
+						description: object['attributes']['description'],
+						price: object['attributes']['price'],
+						tags: object['attributes']['tags'],
+						created: object['createdAt'],
+						id: object['id']
+						});
+				});
+			},
+			error: function(collection, error){
+				console.log(error);
+			}
+		});
+	 
+		return Posts.find({}, {sort: {created: -1}});
     }
     else{
-    	return Posts.find({title: {$regex: Session.get("search"), $options: 'i' }}, {sort: {created: -1}});
+    	if(Session.get("searchBy") === 'title'){
+			return Posts.find({
+			title: {$regex: Session.get("search"), $options: 'i' }}, 
+			{sort: {created: -1}});
+    	}
+    	else if(Session.get("searchBy") === 'desc'){
+    		return Posts.find({
+			description: {$regex: Session.get("search"), $options: 'i' }}, 
+			{sort: {created: -1}});
+    	}
+		else if(Session.get("searchBy") === 'cat'){
+    		return Posts.find({
+			category: {$regex: Session.get("search"), $options: 'i' }}, 
+			{sort: {created: -1}});
+    	}
+    	else if(Session.get("searchBy") === 'tag'){
+    		return Posts.find({
+			tags: {$regex: Session.get("search"), $options: 'i' }}, 
+			{sort: {created: -1}});
+    	}
     }
   };
   
@@ -97,7 +147,7 @@ if (Meteor.isClient) {
 		}
 	});
 	
-  	return Users.find({}, {sort: {username: 1}});
+  	return Users.find({name: {$regex: Session.get("search"), $options: 'i' }}, {sort: {username: 1}});
   }
   
   Template.single.posts = function () {
@@ -106,7 +156,8 @@ if (Meteor.isClient) {
 
   Template.hello.events({
     'click' : function (evt) {
-      Session.set("operation", "showUser");
+      //Session.set("search", "");
+      //Session.set("operation", "showList");
     }
   });
   
@@ -129,10 +180,12 @@ if (Meteor.isClient) {
   Template.search.events({
   	'click input.inc' : function(){
   		if($('#search').val() === ""){
+  			Session.set("searchBy", "title");
   			Session.set("search", " ");
   			Session.set("operation", "showList");
   		}
   		else{
+  			Session.set("searchBy", "title");
   			Session.set("search", $('#search').val());
   			Session.set("operation", "showResults");
   		}
@@ -188,7 +241,7 @@ if (Meteor.isClient) {
   	  		//alert(ids[Session.get("offset")]);
   	  		
   	  		if(Session.get("offset") === -1){
-  	  			Session.set("offset", ids.length)
+  	  			Session.set("offset", ids.length - 1)
   	  		}
   	  		
   	  		$(evt.target).parent().css("background-image", "url("+ids[Session.get("offset")]+")");
@@ -222,13 +275,17 @@ if (Meteor.isClient) {
 			Session.set("light_id", 0);
   	  		Session.set("offset", 1);
 		 }   // esc
+		if(e.keyCode == 39 && Session.get("light_id")){
+			//Session.set("offset", Session.get("offset") + 1);
+		}
+		if(e.keyCode == 37 && Session.get("light_id")){
+			//Session.set("offset", Session.get("offset") - 1);
+		}
 	});
   
 }
 
 if (Meteor.isServer) {
-	
-
 	
   Meteor.startup(function () {
 	Meteor.publish("posts", function() {
@@ -238,9 +295,7 @@ if (Meteor.isServer) {
         return Users.find({});
     });
     
-  });
-  
-  
-  
-  
+});  
+
+
 }

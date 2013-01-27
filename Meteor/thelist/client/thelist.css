@@ -1,5 +1,5 @@
 /* CSS declarations go here */
-.post{
+/*.post{
 	float: left;
 	border: 0px solid black;
 	width: 60%;
@@ -28,6 +28,10 @@
     margin-left: -35%;
 	background-size: 100%;
 	background-color: white;
+	-webkit-transition:all .5s ease-in-out;
+	-moz-transition:all .5s ease-in-out;
+ 	-o-transition:all .5s ease-in-out;
+  	transition:all .5s ease-in-out;
 }
 .lightbox #img{
 	display: none;
@@ -102,6 +106,7 @@ img.desaturate { filter: grayscale(100%);
 .header{
 	width: 100%;
 	background-color: pink;
+	text-align: center;
 }
 .col{
 	width: 90%;
@@ -119,4 +124,5 @@ img.desaturate { filter: grayscale(100%);
 }
 
 body{
-}
+	overflow-x: hidden;
+}*/

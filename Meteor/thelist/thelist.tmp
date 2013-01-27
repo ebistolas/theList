@@ -6,6 +6,7 @@
   <div class="header">
   {{> hello}}
   {{> search}}
+  <a href="/users">View Users</a><br>
   </div>
  
   <div class="col">
@@ -20,7 +21,7 @@
 
 <template name="hello">
   <h1>The List</h1>
-  <input type="button" class="nex" value="users" />
+  <!-- <input type="button" class="nex" value="users" / -->
 </template>
 
 <template name="list">
@@ -47,32 +48,47 @@
 
 <template name="post">
 	<div class="post">
-	<img src="{{image}}" class=desaturate id="{{id}}"><br>
+	<img src="{{images.0.url}}" class=desaturate id="{{id}}"><br>
     <span id="{{id}}">{{title}}</span> posted by {{user}}<br>
     ${{price}}<br>
     
     {{description}}<br>
     created on {{created}}
+    <br>
+    {{#if tags}}
+    Tags: 
+    {{#each tags}}
+    	{{this}}.
+    {{/each}}
+    {{/if}}
     </div>
 </template>
 
 <template name="light">
 	{{#if showLight}}
 	{{#each posts}}
-	<div class="lightbox" style="background-image: url({{image}});">
+	<div class="lightbox" style="background-image: url({{images.0.url}});">
 	<div class="exit" id="{{id}}">•</div>
+	{{#if images.1.url}}
 	<div class="left" id="l">< </div>
 	<div class="right" id="r"> ></div>
+	{{/if}}
     <h1 id="{{id}}">{{title}}<h> ${{price}}</h></h1>
    <span>
     {{description}}
-    <br>
-    <img src="{{image}}" id="img">
+    
+    
     {{#each images}}
-    	<img src="{{url}}" id="img">
+    <img src="{{url}}" id="img">
     {{/each}}
     <br>
-    created on {{created}} by {{user}}
+    created on {{created}} by {{user}}  
+    {{#if tags}}
+    with tags: 
+    {{#each tags}}
+    	{{this}}.
+    {{/each}}
+    {{/if}}
     </span>
     </div>
     {{/each}}
@@ -84,11 +100,13 @@
 <template name="user">
 	{{#if showUser}}
 	{{#each users}}
-	<div class="user">
-	<img src="{{image}}"><br>
 	
-    <b>{{name}}</b><br>
-    {{description}}<br>
+	<div class="post">
+	<img src="{{image}}" class=desaturate id="{{id}}"><br>
+    <span id="{{id}}">{{name}}</span><br>
+    
+    {{description}}
+   	<br>
     Located in {{location}}
     </div>
     {{/each}}
@@ -108,7 +126,7 @@
 
 <template name="search">
 <br>
-Search:<input type="text" id="search">
+<input type="text" id="search" placeholder="search">
 <input type="button" class="inc" value="Go!" />
 	 <br>
 </template>
