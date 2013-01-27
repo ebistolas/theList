@@ -53,6 +53,13 @@
     
     {{description}}<br>
     created on {{created}}
+    <br>
+    {{#if tags}}
+    Tags: 
+    {{#each tags}}
+    	{{this}}.
+    {{/each}}
+    {{/if}}
     </div>
 </template>
 
@@ -68,13 +75,19 @@
     <h1 id="{{id}}">{{title}}<h> ${{price}}</h></h1>
    <span>
     {{description}}
-    <br>
+    
     
     {{#each images}}
     <img src="{{url}}" id="img">
     {{/each}}
     <br>
-    created on {{created}} by {{user}}
+    created on {{created}} by {{user}}  
+    {{#if tags}}
+    with tags: 
+    {{#each tags}}
+    	{{this}}.
+    {{/each}}
+    {{/if}}
     </span>
     </div>
     {{/each}}

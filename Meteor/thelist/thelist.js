@@ -36,37 +36,40 @@ if (Meteor.isClient) {
  Template.list.posts = function () {
  	if(Session.get("operation") == 'showList'){
 	 
-	Posts.remove({});
-	var Listing = Parse.Object.extend('listing');
-	var query = new Parse.Query(Listing);
-	var collection = query.collection();
-	collection.fetch({
-		success: function(collection){
-			//console.log(collection);
-			collection.each(function(object){
-				console.log(object['attributes']['images']);
-				Posts.insert({
-					title: object['attributes']['title'], 
-					user: object['attributes']['user'], 
-					images: object['attributes']['images'],
-					sold: object['attributes']['sold'],
-					category: object['attributes']['category'],
-					description: object['attributes']['description'],
-					price: object['attributes']['price'],
-					created: object['createdAt'],
-					id: object['id']
-					});
-			});
-		},
-		error: function(collection, error){
-			console.log(error);
-		}
-	});
- 
-    return Posts.find({}, {sort: {created: -1}});
+		Posts.remove({});
+		var Listing = Parse.Object.extend('listing');
+		var query = new Parse.Query(Listing);
+		var collection = query.collection();
+		collection.fetch({
+			success: function(collection){
+				//console.log(collection);
+				collection.each(function(object){
+					console.log(object['attributes']['images']);
+					Posts.insert({
+						title: object['attributes']['title'], 
+						user: object['attributes']['user'], 
+						images: object['attributes']['images'],
+						sold: object['attributes']['sold'],
+						category: object['attributes']['category'],
+						description: object['attributes']['description'],
+						price: object['attributes']['price'],
+						tags: object['attributes']['tags'],
+						created: object['createdAt'],
+						id: object['id']
+						});
+				});
+			},
+			error: function(collection, error){
+				console.log(error);
+			}
+		});
+	 
+		return Posts.find({}, {sort: {created: -1}});
     }
     else{
-    	return Posts.find({title: {$regex: Session.get("search"), $options: 'i' }}, {sort: {created: -1}});
+    	return Posts.find({
+    	title: {$regex: Session.get("search"), $options: 'i' }}, 
+    	{sort: {created: -1}});
     }
   };
   
