@@ -7,6 +7,7 @@
   {{> hello}}
   {{> search}}
   {{> list}}
+  {{> results}}
   {{> single}}
 
   {{> new}}
@@ -20,6 +21,14 @@
 
 <template name="list">
 	{{#if showList}}
+		{{#each posts}}
+		  {{> post}}
+		  <br>
+		{{/each}}
+    {{/if}}
+</template>
+<template name="results">
+	{{#if showResults}}
 		{{#each posts}}
 		  {{> post}}
 		  <br>
