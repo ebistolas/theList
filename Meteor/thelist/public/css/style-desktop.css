@@ -170,11 +170,11 @@
 /* Logo                                                                          */
 /*********************************************************************************/
 
-	#logo
+	#logoBanner
 	{
 	}
 
-		#logo h1
+		#logoBanner h1
 		{
 			float: left;
 			margin: 0 0.35em 0 0;
@@ -183,7 +183,7 @@
 			letter-spacing: 0.05em;
 		}
 
-		#logo span
+		#logoBanner span
 		{
 			line-height: 4.5em;
 			letter-spacing: 0.025em;

@@ -422,13 +422,13 @@
 /* Logo                                                                          */
 /*********************************************************************************/
 
-	#logo
+	#logoBanner
 	{
 		overflow: hidden;
 		display: inline-block;
 	}
 
-		#logo h1
+		#logoBanner h1
 		{
 			background: #ff4486;
 			color: #fff;
@@ -437,7 +437,7 @@
 			font-weight: 400;
 		}
 		
-		#logo span
+		#logoBanner span
 		{
 			font-weight: 800;
 		}

@@ -219,12 +219,12 @@
 /* Logo                                                                          */
 /*********************************************************************************/
 
-	#logo
+	#logoBanner
 	{
 		text-align: center;
 	}
 
-		#logo h1
+		#logoBanner h1
 		{
 			display: inline-block;
 			margin: 0 0 0.2em 0;
@@ -233,7 +233,7 @@
 			letter-spacing: 0.05em;
 		}
 
-		#logo span
+		#logoBanner span
 		{
 			display: block;
 			letter-spacing: 0.025em;
