@@ -1,4 +1,5 @@
 Posts = new Meteor.Collection("posts");
+Users = new Meteor.Collection("users");
 Parse.initialize("3LJfPumFrT2H1gKJ4Zl31m3bh5bF0hvJbxwbIkz8", "KGkBUO1ToZaesgs5bwzOA0324lJXDm0vmhtY6bEz");
 
 Session.set("offset", 0);
@@ -10,6 +11,7 @@ Session.set("operation", "showList");
 if (Meteor.isClient) {
  
  	Meteor.subscribe("posts");
+ 	Meteor.subscribe("users");
  
   Template.hello.greeting = function () {
     return "Welcome to the list.";
@@ -26,6 +28,9 @@ if (Meteor.isClient) {
   
   Template.single.showSingle = function(){
   	return Session.get("operation") == 'showSingle';
+  }
+  Template.user.showUser = function(){
+  	return Session.get("operation") == 'showUser';
   }
   Template.new.showNew = function(){
   	return Session.get("operation") == 'showNew';
@@ -60,6 +65,34 @@ if (Meteor.isClient) {
     	return Posts.find({}, {sort: {created: -1}});
   };
   
+  Template.user.users = function(){
+  	Users.remove({});
+  	var query = new Parse.Query(Parse.User);
+	var collection = query.collection();
+	collection.fetch({
+		success: function(collection){
+			//console.log(collection);
+			collection.each(function(object){
+				console.log(object);
+				Users.insert({
+					username: object['attributes']['username'],
+					image: object['attributes']['imgurl'],
+					location: object['attributes']['location'],
+					description: object['attributes']['bio'],
+					name: object['attributes']['name'],
+					gender: object['attributes']['gender'],
+					email: object['attributes']['email'],
+					created: object['createdAt']
+				});
+			});
+		},
+		error: function(collection, error){
+			console.log(error);
+		}
+	});
+	
+  	return Users.find({}, {sort: {username: 1}});
+  }
   Template.results.posts = function () {
     	var res = Posts.find({title: {$regex: Session.get("search"), $options: 'i' }}, {sort: {created: -1}});
     	return res;
@@ -70,10 +103,8 @@ if (Meteor.isClient) {
   };
 
   Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
+    'click input.nex' : function () {
+      Session.set("operation", "showUser");
     }
   });
   
@@ -132,6 +163,9 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
 	Meteor.publish("posts", function() {
         return Posts.find({});
+    });
+    Meteor.publish("users", function() {
+        return Users.find({});
     });
     
   });

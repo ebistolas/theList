@@ -8,15 +8,16 @@
   {{> search}}
   {{> list}}
   {{> results}}
+  {{> user}}
   {{> single}}
-
   {{> new}}
 </center>
 </body>
 
 <template name="hello">
   <h1>The List</h1>
-  {{greeting}}
+  {{greeting}}<br>
+  <input type="button" class="nex" value="users" />
 </template>
 
 <template name="list">
@@ -56,6 +57,21 @@
     created on {{created}}
     </div>
 </template>
+
+<template name="user">
+	{{#if showUser}}
+	{{#each users}}
+	<div class="user">
+	<img src="{{image}}"><br>
+	
+    <b>{{name}}</b><br>
+    {{description}}<br>
+    Located in {{location}}
+    </div>
+    {{/each}}
+    {{/if}}
+</template>
+
 
 <template name="new">
 {{#if showNew}}

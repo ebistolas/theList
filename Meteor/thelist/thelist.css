@@ -6,3 +6,12 @@
 	max-width: 300px;
 	
 }
+.user{
+	border: 0px solid black;
+	min-width: 300px;
+	min-height: 200px;
+	max-width: 300px;
+}
+.user img{
+	max-width: 100px;
+}
