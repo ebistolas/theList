@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+#import "UserDetailViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <NSURLConnectionDelegate>
 
 @property (nonatomic, strong) UIButton *loginButton;
 
