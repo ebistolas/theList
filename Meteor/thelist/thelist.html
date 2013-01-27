@@ -47,7 +47,7 @@
 
 <template name="post">
 	<div class="post">
-	<img src="{{image}}" class=desaturate id="{{id}}"><br>
+	<img src="{{images.0.url}}" class=desaturate id="{{id}}"><br>
     <span id="{{id}}">{{title}}</span> posted by {{user}}<br>
     ${{price}}<br>
     
@@ -59,17 +59,19 @@
 <template name="light">
 	{{#if showLight}}
 	{{#each posts}}
-	<div class="lightbox" style="background-image: url({{image}});">
+	<div class="lightbox" style="background-image: url({{images.0.url}});">
 	<div class="exit" id="{{id}}">•</div>
+	{{#if images.1.url}}
 	<div class="left" id="l">< </div>
 	<div class="right" id="r"> ></div>
+	{{/if}}
     <h1 id="{{id}}">{{title}}<h> ${{price}}</h></h1>
    <span>
     {{description}}
     <br>
-    <img src="{{image}}" id="img">
+    
     {{#each images}}
-    	<img src="{{url}}" id="img">
+    <img src="{{url}}" id="img">
     {{/each}}
     <br>
     created on {{created}} by {{user}}

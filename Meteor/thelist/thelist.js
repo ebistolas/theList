@@ -48,7 +48,6 @@ if (Meteor.isClient) {
 				Posts.insert({
 					title: object['attributes']['title'], 
 					user: object['attributes']['user'], 
-					image: object['attributes']['imgurl'],
 					images: object['attributes']['images'],
 					sold: object['attributes']['sold'],
 					category: object['attributes']['category'],
@@ -188,7 +187,7 @@ if (Meteor.isClient) {
   	  		//alert(ids[Session.get("offset")]);
   	  		
   	  		if(Session.get("offset") === -1){
-  	  			Session.set("offset", ids.length)
+  	  			Session.set("offset", ids.length - 1)
   	  		}
   	  		
   	  		$(evt.target).parent().css("background-image", "url("+ids[Session.get("offset")]+")");
@@ -222,6 +221,12 @@ if (Meteor.isClient) {
 			Session.set("light_id", 0);
   	  		Session.set("offset", 1);
 		 }   // esc
+		if(e.keyCode == 39 && Session.get("light_id")){
+			//Session.set("offset", Session.get("offset") + 1);
+		}
+		if(e.keyCode == 37 && Session.get("light_id")){
+			//Session.set("offset", Session.get("offset") - 1);
+		}
 	});
   
 }
