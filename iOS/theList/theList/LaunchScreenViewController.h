@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchResultsViewController.h"
 
 @interface LaunchScreenViewController : UIViewController
 

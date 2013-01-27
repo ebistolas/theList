@@ -1,24 +1,24 @@
 //
-//  LaunchScreenViewController.m
+//  SearchResultsViewController.m
 //  theList
 //
 //  Created by Eugene Bistolas on 1/26/13.
 //  Copyright (c) 2013 Eugene Bistolas. All rights reserved.
 //
 
-#import "LaunchScreenViewController.h"
+#import "SearchResultsViewController.h"
 
-@interface LaunchScreenViewController ()
+@interface SearchResultsViewController ()
 
 @end
 
-@implementation LaunchScreenViewController
+@implementation SearchResultsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.view.backgroundColor = [UIColor whiteColor];
+        // Custom initialization
     }
     return self;
 }
@@ -33,11 +33,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    SearchResultsViewController *srvc = [[SearchResultsViewController alloc] initWithClassName:LISTING_CLASS];
-    [self presentViewController:srvc animated:YES completion:nil];
 }
 
 @end
