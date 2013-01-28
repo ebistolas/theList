@@ -17,7 +17,7 @@
 	float: left;
 	width: 30%;
 }
-
+*/
 .lightbox {
 	position: fixed;
 	top: 35px;
@@ -32,6 +32,7 @@
 	-moz-transition:all .5s ease-in-out;
  	-o-transition:all .5s ease-in-out;
   	transition:all .5s ease-in-out;
+  	box-shadow: 0px 400px 400px #888888;
 }
 .lightbox #img{
 	display: none;
@@ -41,7 +42,7 @@
 .lightbox h1{
 
 	position: absolute;
-	bottom: -10px;
+	bottom: 0px;
 	font-size: 200%	;
 	height: 30px;
 	width: 100%;
@@ -94,7 +95,7 @@
 	height: 15px;
 	background-color: white;
 }
-
+ /*
 
 img.desaturate { filter: grayscale(100%);
 -webkit-filter: grayscale(100%);

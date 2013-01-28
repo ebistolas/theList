@@ -199,14 +199,14 @@ if (Meteor.isClient) {
   
   Template.search.events({
   	'click input.inc' : function(){
-  		if($('#search').val() === ""){
+  		if($('#bigSearch').val() === ""){
   			Session.set("searchBy", "title");
   			Session.set("search", " ");
   			Session.set("operation", "showList");
   		}
   		else{
   			Session.set("searchBy", "title");
-  			Session.set("search", $('#search').val());
+  			Session.set("search", $('#bigSearch').val());
   			Session.set("operation", "showResults");
   		}
   		
