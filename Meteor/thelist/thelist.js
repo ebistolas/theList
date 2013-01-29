@@ -98,8 +98,32 @@ if (Meteor.isClient) {
   }
  Template.list.posts = function () {
     if(Session.get("operation") == 'showList'){
-
-///////////////////////////////////////////////////////////////////////
+		var allposts = Posts.find({}, {sort: {created: 1}}).fetch(); // get all the content
+    }
+    else{
+    	if(Session.get("searchBy") === 'title'){
+  			var allposts = Posts.find({
+  			title: {$regex: Session.get("search"), $options: 'i' }}, 
+  			{sort: {created: -1}}).fetch();
+    	}
+    	else if(Session.get("searchBy") === 'desc'){
+    		var allposts = Posts.find({
+			    description: {$regex: Session.get("search"), $options: 'i' }}, 
+			  {sort: {created: -1}}).fetch();
+    	}
+		  else if(Session.get("searchBy") === 'cat'){
+    		var allposts = Posts.find({
+			  category: {$regex: Session.get("search"), $options: 'i' }}, 
+			  {sort: {created: -1}}).fetch();
+    	}
+    	else if(Session.get("searchBy") === 'tag'){
+    		var allposts = Posts.find({
+			  tags: {$regex: Session.get("search"), $options: 'i' }}, 
+			  {sort: {created: -1}}).fetch();
+    	}
+    }
+    
+    ///////////////////////////////////////////////////////////////////////
 //		THIS CODE RETURNS ELEMENTS AS A MULTIDIMENSIONAL ARRAY.
 //		ELEMENTS ARE BROKEN INTO COLLECTIONS OF THREE
 //		THE "list" TEMPLATE NEEDS TO BE SET UP TO HANDLE THIS.
@@ -118,7 +142,6 @@ if (Meteor.isClient) {
 //		THE LATER RETURN STATEMENT.
 ////////////////////////////////////////
 		var rows = new Array(); // create an array to hold the rows
-		var allposts = Posts.find({}, {sort: {created: 1}}).fetch(); // get all the content
 		while(allposts.length){ // while the content array still has elements in it
 			var cols = new Array(); // create an array to represent columns
 			for(var i = 0; i < 3; i++){ // insert three elements into the array
@@ -131,36 +154,8 @@ if (Meteor.isClient) {
 		return rows;
 		console.log(threeby);
 ////////////////////////////////////////
-
-
-
-     // return  Posts.find({}, {sort: {created: 1}});
-      
-      
-    }
-
-    else{
-    	if(Session.get("searchBy") === 'title'){
-  			return Posts.find({
-  			title: {$regex: Session.get("search"), $options: 'i' }}, 
-  			{sort: {created: -1}});
-    	}
-    	else if(Session.get("searchBy") === 'desc'){
-    		return Posts.find({
-			    description: {$regex: Session.get("search"), $options: 'i' }}, 
-			  {sort: {created: -1}});
-    	}
-		  else if(Session.get("searchBy") === 'cat'){
-    		return Posts.find({
-			  category: {$regex: Session.get("search"), $options: 'i' }}, 
-			  {sort: {created: -1}});
-    	}
-    	else if(Session.get("searchBy") === 'tag'){
-    		return Posts.find({
-			  tags: {$regex: Session.get("search"), $options: 'i' }}, 
-			  {sort: {created: -1}});
-    	}
-    }
+// 		return  Posts.find({}, {sort: {created: 1}});
+    
   };
   
   Template.user.users = function(){
