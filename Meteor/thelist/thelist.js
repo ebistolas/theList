@@ -9,8 +9,40 @@ Session.set("searchBy", "title");
 Session.set("operation", "showList");
 Session.set("light_id", 0);
 
+function scrape(){
+		  Posts.remove({});
+		  var Listing = Parse.Object.extend('listing');
+		  var query = new Parse.Query(Listing);
+		  var collection = query.collection();
+		  collection.fetch({
+			success: function(collection){
+				//console.log(collection);
+				collection.each(function(object){
+					//console.log(object['attributes']['images']);
+					Posts.insert({
+						title: object['attributes']['title'], 
+						user: object['attributes']['user'], 
+						images: object['attributes']['images'],
+						sold: object['attributes']['sold'],
+						category: object['attributes']['category'],
+						description: object['attributes']['description'],
+						price: object['attributes']['price'],
+						tags: object['attributes']['tags'],
+						created: object['createdAt'],
+						id: object['id']
+						});
+				});
+			},
+			error: function(collection, error){
+				console.log(error);
+			}
+		});
+}
+
 
 if (Meteor.isClient) {
+	scrape(); // cache the remote database
+
 	// Router for Pages
 	var Router = Backbone.Router.extend({
 		routes: {
@@ -67,54 +99,44 @@ if (Meteor.isClient) {
  Template.list.posts = function () {
     if(Session.get("operation") == 'showList'){
 
-      Posts.remove({});
-      var Listing = Parse.Object.extend('listing');
-      var query = new Parse.Query(Listing);
-      var collection = query.collection();
-      collection.fetch({
-      	success: function(collection){
-      		//console.log(collection);
-      		collection.each(function(object){
-      			//console.log(object['attributes']['images']);
-      			Posts.insert({
-      				title: object['attributes']['title'], 
-      				user: object['attributes']['user'], 
-      				images: object['attributes']['images'],
-      				sold: object['attributes']['sold'],
-      				category: object['attributes']['category'],
-      				description: object['attributes']['description'],
-      				price: object['attributes']['price'],
-      				tags: object['attributes']['tags'],
-      				created: object['createdAt'],
-      				id: object['id']
-      				});
-      		});
-      	},
-      	error: function(collection, error){
-      		console.log(error);
-      	}
-      });
+///////////////////////////////////////////////////////////////////////
+//		THIS CODE RETURNS ELEMENTS AS A MULTIDIMENSIONAL ARRAY.
+//		ELEMENTS ARE BROKEN INTO COLLECTIONS OF THREE
+//		THE "list" TEMPLATE NEEDS TO BE SET UP TO HANDLE THIS.
+//		I.E. 
+//			{{#each posts}} <-- "posts" is the block inside the "list" template
+//			<div class="row">
+//				{{#each this}} <-- NOTICE: "this" MUST be used as we are iterating inside a multi-depth
+//					<div class="post">
+//					{{> post}} <-- the "post" template
+//					</div>
+//				{{/each}}
+//			</div>
+//			{{/each}}
+///////////////////////////////////////////////////////////////////////
+//		UNCOMMENT THE BELOW CODE TO ENABLE. REMEMBER TO COMMENT OUT 
+//		THE LATER RETURN STATEMENT.
+////////////////////////////////////////
+		var rows = new Array(); // create an array to hold the rows
+		var allposts = Posts.find({}, {sort: {created: 1}}).fetch(); // get all the content
+		while(allposts.length){ // while the content array still has elements in it
+			var cols = new Array(); // create an array to represent columns
+			for(var i = 0; i < 3; i++){ // insert three elements into the array
+				if(allposts.length){ // make sure there are still elements. IMPORTANT.
+					cols.push(allposts.pop()); // pop an element off the content arr into the column arr.
+				}
+			}
+			rows.push(cols); // push the columns into the rows array
+		}
+		return rows;
+		console.log(threeby);
+////////////////////////////////////////
 
-      // var searchResults = Posts.find({}, {sort: {created: -1}});
-      // debugger;
-      // var gridListings = [[]];
-      // for (var index, row = 0; index <= searchResults.length; index++) {
 
-      //   gridListings[row].push(searchResults[index]);
 
-      //   if(row % 3 == 0) {
-      //     row++;
-      //     gridListings[row] = [];
-      //   }
-      // };
-
-      // // return default homepage search sorted into three element arrays for gridification
-      // debugger;
-      // Session.set('foo', gridListings);
-      // return gridListings;
-
-      // return default homepage search
-      return Posts.find({}, {sort: {created: -1}});
+     // return  Posts.find({}, {sort: {created: 1}});
+      
+      
     }
 
     else{

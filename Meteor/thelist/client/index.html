@@ -205,9 +205,15 @@
 <template name="list">
 
 	{{#if showList}}
+	
 		{{#each posts}}
-		  {{> post}}
+			<div class="row">
+				{{#each this}}
+					{{> post}}
+				{{/each}}
+			</div>
 		{{/each}}
+		
     {{/if}}
 </template>
 
